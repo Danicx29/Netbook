@@ -1,7 +1,7 @@
 <?php
 /*
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||                          Pagina de autores para libros cambio daniel          ||   
+||                          Pagina de autores para libros amilcrack              ||   
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 */
 require_once("../../app/views/public/page/panel.class.php");
