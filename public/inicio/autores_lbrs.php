@@ -1,7 +1,7 @@
 <?php
 /*
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||                          Pagina de autores para libros                        ||   
+||                          Pagina de autores para libros cambio daniel          ||   
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 */
 require_once("../../app/views/public/page/panel.class.php");
