@@ -1,0 +1,111 @@
+.Logosh{
+  margin-top: 17px; 
+  margin-left: 20px;
+}
+.btnnavloc{
+  margin-top: 80%; 
+}
+.fondo{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -100;
+}
+.ImagesSizes{
+  height: 50%;
+  width: 50%;
+}
+
+.spaceimage1{
+  margin-top: 10%;
+}
+.spaceimage2{
+  margin-top: 10%;
+}
+.ColorSidebar{
+  background-color: rgba(0,0,0,0.7);
+}
+.footersizess{
+  height: 10%;
+  width: 100%;
+}
+.EditCenter1{
+margin-top: 8%;
+width: 100%;
+}
+.EditCenter2{
+  margin-top: -28%;
+  margin-left: 60%;
+  }
+
+.ModalsColor{
+  background-color: rgba(14,37,48,0.5)
+}
+.FontLoginAd{
+  font-family: calibri;
+  -webkit-text-stroke: 2px grey;
+}
+.TitleSizeLogin{
+  
+  font-size: 1000%;
+}
+.TitleSizeLoginM{
+  
+  font-size: 800%;
+}
+.TitleSizeLoginS{
+  
+  font-size: 500%;
+}
+.LocationFontTitle{
+ margin-top: -8%;
+}
+.LocationFontTitleSmall{
+ margin-top: 15%;
+}
+.boxsizes{ 
+  height: 100px;
+  border: 6px gray;
+
+}
+.movetext{
+  margin-left: 100%;
+}
+
+.buttonsizess{
+  height: 100%;
+  width: 97%;
+}
+.locationIcons{
+  margin-left: 70%;
+}
+.locationIconsUsu{
+  margin-left: 70%;
+}
+.locationIconsusuarios{
+  margin-left: 0%;
+}
+.LocationTable{ 
+}
+.TypeFontss{
+font-family: roboto;
+}
+body{  
+  background-image: url("../Img/Background_index1.jpg") no-repeat fixed center center ;
+  background-size: cover;
+}
+.backgroundTabss{
+  background-color: rgba(0,0,0,0.6)
+}
+.imageSizess{
+  height: 30%;
+  width: 30%;
+}
+.buttonsaddLocation{
+  margin-left: 58%;
+  margin-top: -10%;
+}
+.locationImagebutton{
+  
+}
+
