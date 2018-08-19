@@ -27,7 +27,7 @@ class Page extends Component{
 			<!--Let browser know website is optimized for mobile-->
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 		</head>	
-		<body class='grey darken-4'>
+		<body class='grey darken-4' >
 			<!--Menu principal de inico de usuarios ingresados-->
 			<header>
 				<ul id='dropdown2' class='dropdown-content'>
@@ -51,13 +51,13 @@ class Page extends Component{
 						</li>
 						<li>
 						<a href='../perfil/perfil.php'>
-							<i class='material-icons left'>account_circle</i>$_SESSION[nickname]</a>
+							<i class='material-icons left'>account_circle</i>$_SESSION[nickname_public]</a>
 					</li>
 						<li><a class='dropdown-button' href='#!' data-activates='dropdown2'><i class='material-icons right'>settings</i></a></li>
 					</ul>
 					<ul class='side-nav' id='mobile-demo'>
 						<li>
-							<form>
+							<form  autocomplete= 'off'>
 								<div class=' input-field inline'>
 									<i class='material-icons prefix'>search</i>
 									<input id='icon_prefix' type='text' class='validate black-text '>

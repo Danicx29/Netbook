@@ -12,7 +12,7 @@
                     <span class="card-title center">Tabla de categorias <a href="#ModalAgregar" class="modal-trigger btn-floating btn-small waves-effect waves-light black">
                       <i class="material-icons">add</i>
                     </a></span>
-                    <form method='post' enctype='multipart/form-data'>
+                    <form method='post' enctype='multipart/form-data' autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscar' type='text' name='busqueda'/>
@@ -85,7 +85,7 @@
     <div id='Edit$row[id_genero]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>Editar la categoria '>$row[nombre_genero]' </h4>
-            <form  method='post'enctype='multipart/form-data' >
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>
               <div class='input-field col s12 m12'>
                 <input id='nom_categup' name='nom_categup'  type='text' class='validate center' value='$row[nombre_genero]'>
                 <label for='last_name'>Nombre de Categoria</label>
@@ -108,7 +108,7 @@
     <div id='Eliminar$row[id_genero]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea eliminar la categoria '$row[nombre_genero]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idcatdel' type='text' name='idcatdel' value='$row[id_genero]' />
                     </div>
@@ -126,7 +126,7 @@
 <div id='ModalAgregar' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>Agregar categoria </h4>            
-            <form  method='post'enctype='multipart/form-data' >
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>
               <div class="input-field col s12 m12">
                 <input id="nom_categ" name="nom_categ"  type="text" class="validate center" >
                 <label for="last_name">Nombre de Categoria</label>

@@ -200,7 +200,7 @@ class Page extends Component{
                 <!-- notice the "circle" class -->
               </div>
     
-              <form action="#">
+              <form action="#"  autocomplete= 'off' >
                 <div class="file-field input-field">
                   <div class="btn-floating btn-large waves-effect waves-light buttonsaddLocation">
                     <i class="material-icons">attach_file</i>
@@ -254,7 +254,7 @@ class Page extends Component{
                 <label>Tipo de usuario</label>
               </div>
               <h6 class="grey-text center">Sexo</h6>
-              <form action="#">
+              <form action="#"  autocomplete= 'off'>
                 <p class="center">
                   <input name="group1" type="radio" id="test1" />
                   <label for="test1" class="black-text">Masculino</label>

@@ -26,7 +26,7 @@
                       <i class="material-icons">add</i>
                     </a>
                       </span>
-                      <form method='post' enctype='multipart/form-data'>
+                      <form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscar' type='text' name='busqueda'/>
@@ -90,7 +90,7 @@
     <div id='autoredit$row[id_autor]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>Modificar la editorial '$row[nombre_autor]' </h4>
-            <form  method='post'enctype='multipart/form-data' >
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>
                         
             <div class='row'>
 
@@ -131,7 +131,7 @@
     <div id='Eliminaraut$row[id_autor]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea eliminar este registro? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='ideautodel' type='text' name='ideautodel' value='$row[id_autor]' />
                     </div>
@@ -158,7 +158,7 @@
                       <i class="material-icons">add</i>
                     </a>
                       </span>
-                       <form method='post' enctype='multipart/form-data'>
+                       <form method='post' enctype='multipart/form-data' autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscaredit' type='text' name='busquedas'/>
@@ -223,7 +223,7 @@
     <div id='Edit$edit1[id_editorial]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>Modificar la editorial '$edit1[nombre_editorial]' </h4>
-            <form  method='post'enctype='multipart/form-data' >
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off' >
                         
               <div class='row'>
               <div class='input-field col s12 m12'>
@@ -252,7 +252,7 @@
     <div id='Eliminar$edit1[id_editorial]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea eliminar este registro? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data' autocomplete= 'off' >          
                   <div class='input-field col s1 m1 hide'>
                     <input id='ideditdel' type='text' name='ideditdel' value='$edit1[id_editorial]' />
                     </div>
@@ -278,7 +278,7 @@
             <h4>Agregar autor</h4>          
                     
               <!-- agregando los campos -->                   
-              <form  method='post'enctype='multipart/form-data' >      
+              <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>      
               <div class="input-field col s12 m12">
             <input id="insert_nomau" name="insert_nomau" type="text" class="validate center">
             <label for="last_name">Nombre de autor</label>
@@ -310,7 +310,7 @@
 <div id='ModalAgregar' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>Agregar editorial </h4>            
-            <form  method='post'enctype='multipart/form-data' >
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>
             <div class="input-field col s12 m12">
             <input id="nom_edit" name="nom_edit" type="text" class="validate center">
             <label for="last_name">Nombre de Editorial</label>

@@ -2,7 +2,7 @@
 require_once("../../app/models/public/perfil/perfil.class.php");
 try{
     $object = new mi_perfil;
-    if($object->setId_usuario($_SESSION['id_usuario'])){
+    if($object->setId_usuario($_SESSION['id_usuario_public'])){
         $obtener_info = $object->getUsuario();
         if($obtener_info){
             $Pago = $object->getPagos();
@@ -51,7 +51,7 @@ try{
         }
     }
     if(isset($_POST['actualizar_usuario'])){ 
-        if($object->setId_usuario($_SESSION['id_usuario'])){            
+        if($object->setId_usuario($_SESSION['id_usuario_public'])){            
             if($object->setNombres($_POST['nombre'])){
                 if($object->setApellidos_usuario($_POST['apellido'])){
                     if($object->setCorreo_usuario($_POST['email'])){         
@@ -88,25 +88,30 @@ try{
         }
     }
     if(isset($_POST['actualizar_clave'])){ 
-        if($object->setId_usuario($_SESSION['id_usuario'])){ 
-            if($_POST['clave1'] == $_POST['clave2']){            
-                 if($object->setClave_usuario($_POST['clave1'])){
-                    $clave= $object->updateClave();
-                    if($clave){
-                        Page::showMessage(1, "El registro se modifico correctamente","" );
-                    }
-                    else{
-                        Page::showMessage(2, "No se inserto", null);
-                    }
-                }	
+        if($_POST['contra'] == $_SESSION['nickname_public'] ){  
+            if($object->setId_usuario($_SESSION['id_usuario_public'])){ 
+                if($_POST['clave1'] == $_POST['clave2']){            
+                    if($object->setClave_usuario($_POST['clave1'])){
+                        $clave= $object->updateClave();
+                        if($clave){
+                            Page::showMessage(1, "El registro se modifico correctamente","" );
+                        }
+                        else{
+                            Page::showMessage(2, "No se inserto", null);
+                        }
+                    }	
+                }
+                else{
+                    Page::showMessage(2, "La claves no coinciden", null);
+                }
             }
-            else{
-                Page::showMessage(2, "La claves no coinciden", null);
-            }
+        }
+        else{
+            Page::showMessage(2, "Error la clave no puede ser nombre de usuario", null);
         }
     }
     if(isset($_POST['insertar_pago'])){ 
-        if($object->setId_usuario($_SESSION['id_usuario'])){      
+        if($object->setId_usuario($_SESSION['id_usuario_public'])){      
             if($object->setNtarjeta($_POST['Ncard'])){
                 if($object->setFecha($_POST['fecha'])){    
                  if($object->setCvc($_POST['cvc'])){

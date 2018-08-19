@@ -1,6 +1,6 @@
 
     <main>
-            <form method='post'>
+            <form method='post' autocomplete= 'off'>
         <div class="fondo1 ">
             <!--Fondo de pantalla registro-->
             <div class="row">
@@ -114,12 +114,16 @@
                                 </div>
                                 <div class="row ">
                                     <div class=" ight-blue-text  col s12 m12 l12">
-                                       
                                             <a href="login.php" class=" blue btn waves-effect waves-light" type="" name="action">Iniciar sesión
                                                 <i class="material-icons right"></i>
                                             </a>
-                                        
-
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class=" black-text  col s12 m12 l12 ">
+                                            <a href="recuperar.php" class=" red btn waves-effect waves-light" type="" name="action">Recuperar clave
+                                                <i class="material-icons right"></i>
+                                            </a>
                                     </div>
                                 </div>
 

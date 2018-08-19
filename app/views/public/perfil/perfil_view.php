@@ -9,15 +9,15 @@
                             <div class="row center-align">
                             <?php
                             $rutaxs=null;                          
-                            if($_SESSION['foto_usuario']==null){
+                            if($_SESSION['foto_usuario_public']==null){
                               $rutaxs="<img class='circle foto-circular' src='../../web/img/usuarios/user-profile.png'>";
                             }
                             else{
-                              $rutaxs="<img class='circle foto-circular' src='../../web/img/usuarios/$_SESSION[foto_usuario]'>";                            
+                              $rutaxs="<img class='circle foto-circular' src='../../web/img/usuarios/$_SESSION[foto_usuario_public]'>";                            
                             }
                             print("
                             $rutaxs
-                            <h5 class='white-text flow-text'>Mi perfil $_SESSION[nickname]</h5>
+                            <h5 class='white-text flow-text'>Mi perfil $_SESSION[nickname_public]</h5>
                             ");
                             ?>
                             </div>
@@ -152,7 +152,7 @@
                             <div class="col s12 m12 l12 ">
                                 <div class="card-panel hoverable">
                                     <h5 class=" blue-text center-align">Perfil</h5>
-                                    <form enctype="multipart/form-data" method='post'>
+                                    <form enctype="multipart/form-data" autocomplete= 'off'> method='post'>
                                         <!-- Page Content goes here -->
                                         <div class="row">
                                             <!--agregando camposs -->
@@ -195,7 +195,7 @@
                             <div class="col s12 m12 l12 ">
                                 <div class="card-panel hoverable">
                                     <h5 class=" blue-text center-align">Datos</h5>
-                                    <form method='post' enctype="multipart/form-data">
+                                    <form method='post' enctype="multipart/form-data " autocomplete= 'off'> >
                                         <div class="input-field ">
                                             <i class="material-icons prefix">https</i>
                                             <input name="clave1" id="icon_prefix" type="password" class="validate">
@@ -226,7 +226,7 @@
                                 <div class="card-panel hoverable">
                                     <div class="row">
                                         <h5 class=" blue-text center-align">Agregar metodo de pago</h5>
-                                        <form  method='post' enctype="multipart/form-data">
+                                        <form  method='post' autocomplete= 'off' enctype="multipart/form-data">
                                             <div class="input-field ">
                                                 <i class="black-text material-icons prefix">credit_card</i>
                                                 <input class="black-text" name='Ncard' id="icon_prefix" type="text" class="validate">
@@ -268,7 +268,7 @@
                                                             <h6 class='grey-text text-darken-4 '>Vencimiento: $row[fechaVen_cuenta]</h6>
                                                         </div>
                                                         <div class='col s1 m1 l1 center-align'>
-                                                            <form method='post'>
+                                                            <form method='post' autocomplete= 'off'>
                                                               <input class='black-text hide' value=' $row[id_cuenta]' name='id_pago' type='text' class='validate '>
                                                                 <button name='delete_pago' >
                                                                     <i class='red-text material-icons'>delete</i>
@@ -308,7 +308,7 @@
 
                                         <tbody>
                                         <?php
-                                        $ventax = $object->getventas($_SESSION['id_usuario']);
+                                        $ventax = $object->getventas($_SESSION['id_usuario_public']);
                                                 foreach($ventax as $row){
                                                 print("
                                                 <tr>

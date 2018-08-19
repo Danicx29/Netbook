@@ -1,7 +1,7 @@
 <?php
 /*
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||                          Pagina de autores para libros amilcrack              ||   
+||                          Pagina de autores para libros                        ||   
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 */
 require_once("../../app/views/public/page/panel.class.php");

@@ -7,7 +7,7 @@
 require_once("../../app/models/public/inicio/inicio.class.php");
 try{	
 	$inicio = new inicio;
-	$id_usuario = $_SESSION['id_usuario'];
+	$id_usuario = $_SESSION['id_usuario_public'];
 	$Autores = $inicio->getAutores();
 		if($Autores){
 			require_once("../../app/views/public/inicio/autores_lbrs_view.php");

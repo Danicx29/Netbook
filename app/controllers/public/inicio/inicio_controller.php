@@ -4,7 +4,7 @@
 require_once("../../app/models/public/inicio/inicio.class.php");
 try{	
 	$inicio = new inicio;
-	$id_usuario = $_SESSION['id_usuario'];
+	$id_usuario = $_SESSION['id_usuario_public'];
 	if(isset($_POST['comentar'])){
 		$_POST = $inicio->validateForm($_POST);
 		if($inicio->setId_libro($_POST['libro'])){

@@ -15,7 +15,7 @@
                     <i class="material-icons">add</i>
                   </a>            
                     </span>
-                    <form method='post' enctype='multipart/form-data'>
+                    <form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscar' type='text' name='busqueda'/>
@@ -117,7 +117,7 @@
     <div id='Eliminar$lista_usuario[id_usuario]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea eliminar el usuario '$lista_usuario[nombre_usuario]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idusudel' type='text' name='idusudel' value='$lista_usuario[id_usuario]' />
                     </div>

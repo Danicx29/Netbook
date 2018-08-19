@@ -4,12 +4,13 @@ try{
     $object = new mtsUsuario;
     require_once("../../app/views/public/sesion/registrarse_view.php");
     if(isset($_POST['btncrearusu'])){        
-    if($object->setNombres($_POST['regnom'])){
-        if($object->setApellidos_usuario($_POST['regapell'])){
-            if($object->setCorreo_usuario($_POST['email'])){
-                if($object->setNickname($_POST['nickname'])){  
-                        if($object->setClave_usuario($_POST['contra'])){                              
-                            $inserusu= $object->createUsuPublic();
+        if($object->setNombres($_POST['regnom'])){
+            if($object->setApellidos_usuario($_POST['regapell'])){
+                if($object->setCorreo_usuario($_POST['email'])){
+                    if($object->setNickname($_POST['nickname'])){
+                        if($_POST['contra'] != $_POST['nickname'] ){    
+                            if($object->setClave_usuario($_POST['contra'])){                              
+                                    $inserusu= $object->createUsuPublic();
                                     if($inserusu){
                                         if($object->setnumeroTarj_cuenta($_POST['credicard'])){
                                             if($object->setfechaVen_cuenta($_POST['celular'])){
@@ -37,12 +38,15 @@ try{
                                     else{
                                         Page::showMessage(2, "Error al registrar datos de usuario", null);
                                     }                 
+                            }
+                            else{
+                                Page::showMessage(2, "Error la clave es validad", null);
+                            }
                         }
                         else{
-                            Page::showMessage(2, "Error al ingresar clave", null);
+                            Page::showMessage(2, "Error la clave no puede ser nombre de usuario", null);
                         }
-                    
-                }
+                   }
                else{
                    Page::showMessage(2, "Error al ingresar el nickname de usuario", null);
                    }

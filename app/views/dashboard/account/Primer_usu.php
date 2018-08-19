@@ -42,7 +42,7 @@
             <label>Tipo de usuario</label>
           </div>
           <h6 class="grey-text center">Sexo</h6>
-          <form action="#">
+          <form action="#"  autocomplete= 'off'>
             <p class="center">
               <input name="group1" type="radio" id="test1" />
               <label for="test1" class="black-text">Masculino</label>
