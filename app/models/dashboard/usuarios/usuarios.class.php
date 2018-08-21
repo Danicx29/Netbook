@@ -13,7 +13,122 @@ class mtsUsuario extends Validator{
 	private $numeroTarj_cuenta=null;
 	private $fechaVen_cuenta=null;
 	private $cvc_cuenta=null;
+	//tipo usuarios
+	private $nombre_tipoUsu=null;
+	private $id_tipousu = null;
+	private $permiso_libros = null;	
+	private $permiso_autoyedit = null;	
+	private $permiso_categorias = null;	
+	private $permiso_usuarios = null;	
+	private $permiso_solicitudes = null;	
+	private $permiso_ventas = null;	
+	private $permiso_publico = null;	
+	
+		
 	//Métodos para sobrecarga de propiedades
+	//metodo para ingresar nombre del tipo usu
+	public function setnombre_tipoUsu($value){
+		if($this->validateAlphabetic($value, 1, 50)){
+			$this->nombre_tipoUsu = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getnombre_tipoUsu(){
+		return $this->nombre_tipoUsu;
+	}
+
+	//metodos para insertar permisos
+	public function setpermiso_publico($value){
+		if($this->validateId($value)){
+			$this->permiso_publico = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_publico(){
+		return $this->permiso_publico;
+	}
+	public function setpermiso_ventas($value){
+		if($this->validateId($value)){
+			$this->permiso_ventas = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_ventas(){
+		return $this->permiso_ventas;
+	}
+	public function setpermiso_solicitudes($value){
+		if($this->validateId($value)){
+			$this->permiso_solicitudes = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_solicitudes(){
+		return $this->permiso_solicitudes;
+	}
+	public function setpermiso_usuarios($value){
+		if($this->validateId($value)){
+			$this->permiso_usuarios = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_usuarios(){
+		return $this->permiso_usuarios;
+	}
+	public function setpermiso_categorias($value){
+		if($this->validateId($value)){
+			$this->permiso_categorias = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_categorias(){
+		return $this->permiso_categorias;
+	}
+	public function setpermiso_autoyedit($value){
+		if($this->validateId($value)){
+			$this->permiso_autoyedit = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_autoyedit(){
+		return $this->permiso_autoyedit;
+	}
+	public function setpermiso_libros($value){
+		if($this->validateId($value)){
+			$this->permiso_libros = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getpermiso_libros(){
+		return $this->permiso_libros;
+	}
+	public function setid_tipousu($value){
+		if($this->validateId($value)){
+			$this->id_tipousu = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getid_tipousu(){
+		return $this->id_tipousu;
+	}
+
 	public function setcvc_cuenta($value){
 		if($this->validateAlphanumeric($value, 1, 50)){
 			$this->cvc_cuenta = $value;
@@ -209,6 +324,65 @@ class mtsUsuario extends Validator{
 			return false;
 		}
 	}
+	/*______________________________________________________________________________________________________________
+												TIPO DE USUARIOS
+	  _______________________________________________________________________________________________________________
+	*/
+	public function searchTipouarios($value){
+		$sql = "SELECT `id_tipousu`,`nombre`,`cod_permiso` FROM `tipo_usuario`  WHERE `nombre` LIKE ? ORDER BY `nombre` ASC";
+		$params = array("%$value%");
+		return Database::getRows($sql, $params);
+	}
+	public function getUsTipouarios(){
+		$sql = "SELECT `id_tipousu`,`nombre` FROM `tipo_usuario` ";
+		$params = array(null);
+		return Database::getRows($sql, $params);
+	}
+	public function registros_table($empieza, $por_pagina){
+            $query = "SELECT `id_tipousu`,`nombre` FROM `tipo_usuario` LIMIT $empieza, $por_pagina";
+            $parametros=array($empieza,$por_pagina);
+            return Database::getRows($query, $parametros);
+		}
+	public function createPermisos(){
+		$sql = "INSERT INTO `tipo_usuario`(`id_tipousu`,`nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$permisoDefult = '1';			
+		$params = array($this->nombre_tipoUsu,$this->permiso_libros, $this->permiso_autoyedit, $this->permiso_categorias, $this->permiso_usuarios, $this->permiso_solicitudes, $this->permiso_ventas, $permisoDefult);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateTipoUsurio(){
+		$sql = "UPDATE `tipo_usuario` SET `nombre` = ?, `permiso_libros` = ?, `permiso_autoyedit` = ?, `permiso_categorias` = ?, `permiso_usuarios` = ?, `permiso_solicitudes` = ?, `permiso_ventas` = ? WHERE `tipo_usuario`.`id_tipousu` = ?";
+		$params = array($this->nombre_tipoUsu,$this->permiso_libros, $this->permiso_autoyedit, $this->permiso_categorias, $this->permiso_usuarios, $this->permiso_solicitudes, $this->permiso_ventas,$this->id_tipousu);
+		return Database::executeRow($sql, $params);
+	}
+	public function deleteTipoUsu(){
+		$sql = "DELETE FROM `tipo_usuario` WHERE `tipo_usuario`.`id_tipousu` = ?";
+		$params = array($this->id_tipousu);
+		return Database::executeRow($sql, $params);
+	}
+	public function CargarPermisos(){
+		$sql = "SELECT `id_tipousu`, `nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico` FROM `tipo_usuario` WHERE `id_tipousu`=?";
+		$params = array($this->id_tipousu);
+		$user = Database::getRow($sql, $params);
+		if($user){
+			$this->id_tipousu = $user['id_tipousu'];
+			$this->nombre_tipoUsu = $user['nombre'];
+			$this->permiso_libros = $user['permiso_libros'];
+			$this->permiso_autoyedit = $user['permiso_autoyedit'];
+			$this->permiso_categorias = $user['permiso_categorias'];
+			$this->permiso_usuarios = $user['permiso_usuarios'];
+			$this->permiso_solicitudes = $user['permiso_solicitudes'];
+			$this->permiso_ventas = $user['permiso_ventas'];
+			$this->permiso_publico = $user['permiso_publico'];					
+			return true;
+		}else{
+			return null;
+		}
+	}
+	
+	/*______________________________________________________________________________________________________________
+													USUARIOS
+	  _______________________________________________________________________________________________________________
+	*/
 	public function getUsuarios(){
 		$sql = "SELECT id_usuario FROM usuarios ";
 		$params = array(null);
@@ -252,12 +426,13 @@ class mtsUsuario extends Validator{
 		return Database::getRows($sql, $params);
 	}
 	public function checkClave_usuario(){
-		$sql = "SELECT clave_usuario, nickname,foto_usuario  FROM usuarios WHERE id_usuario = ?";
+		$sql = "SELECT clave_usuario, nickname,foto_usuario,tipo_usuario  FROM usuarios WHERE id_usuario = ?";
 		$params = array($this->id_usuario);
 		$data = Database::getRow($sql, $params);
 		if(password_verify($this->clave_usuario, $data['clave_usuario'])){
 			$this->nombre_usuario = $data['nickname'];
 			$this->foto_usuario = $data['foto_usuario'];
+			$this->codtipouso = $user['tipo_usuario'];			
 			return true;
 		}else{
 			return false;

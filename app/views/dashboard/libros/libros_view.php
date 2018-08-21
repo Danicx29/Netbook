@@ -171,7 +171,7 @@
       </div>
     </div>
 
-<!--modal del grafico 2-->
+<!--modal del grafico 1-->
 <div id='grafico2' class='modal modal-fixed-footer'>
       <div class='modal-content blue-grey lighten-4'>
         <div class='row'>

@@ -1,5 +1,4 @@
 <?php
-
 require_once("../../app/models/dashboard/menu/menu.class.php");
 
 try{

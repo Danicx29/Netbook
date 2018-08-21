@@ -45,7 +45,16 @@
                                                         </button>
                                                     </a>
                                                 </div>
-                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class=" black-text  col s12 m12 l12 ">
+                                                    <a href="recuperar.php"> 
+                                                        <button class="grean btn waves-effect waves-light" type="submit" name="action">Recuperar clave
+                                                            <i class=" material-icons right"></i>
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>

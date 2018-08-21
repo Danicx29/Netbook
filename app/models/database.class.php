@@ -11,11 +11,11 @@ class Database{
         //nombre del servidor
         $server = "localhost";
         //nombre de la base de datos
-        $database = "db_netbook";
+        $database = "netbook";
         //nombre del usuario
-        $username = "daninetbook";
+        $username = "root";
         //contraseña del usuario
-        $password = "123456";
+        $password = "";
         try{
             //se procede a realizar la instancia de la conexion y concatenan las variables que antes hemos definido
             @self::$connection = new PDO("mysql:host=$server; dbname=$database; charset=utf8", $username, $password);

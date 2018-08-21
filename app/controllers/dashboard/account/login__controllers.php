@@ -15,6 +15,7 @@ try{
 							$_SESSION['foto'] = $object->getImagen();
 							$_SESSION['nombre_usuario'] = $object->getNombres();
 							$_SESSION['apellidos_usuario'] = $object->getApellidos_usuario();
+							$_SESSION['tipo_usuario'] = $object->getTIPOusuario();
 							Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");
 						}else{
 							throw new Exception("Clave inexistente");

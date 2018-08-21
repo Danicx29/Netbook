@@ -12,6 +12,17 @@ class login extends Validator{
 	private $nickname = null;
 	private $TIPOusuario = null;
 	//Métodos para sobrecarga de propiedades
+	public function setTIPOusuario($value){
+		if($this->validateId($value)){
+			$this->TIPOusuario = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getTIPOusuario(){
+		return $this->TIPOusuario;
+	}
 	public function setId_usuario($value){
 		if($this->validateId($value)){
 			$this->id_usuario = $value;
@@ -122,9 +133,9 @@ class login extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkNickname(){
-		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario` FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu = ?";
-		$TIPOusuario =1;
-		$params = array($this->nickname,$TIPOusuario);
+		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario` FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
+		$otro =2;
+		$params = array($this->nickname,$otro);
 		$data = Database::getRow($sql, $params);
 		if($data){
 			$this->id_usuario = $data['id_usuario'];
@@ -132,7 +143,8 @@ class login extends Validator{
 			$this->foto_usuario =$data['foto_usuario'];
 			$this->nombre_usuario=$data['nombre_usuario'] ;
 			$this->apellidos_usuario=$data['apellidos_usuario'] ;
-
+			$this->TIPOusuario=$data['tipo_usuario'] ;
+			
 			return true;
 		}else{
 			return false;

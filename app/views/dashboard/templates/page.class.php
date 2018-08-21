@@ -29,24 +29,24 @@ class Page extends Component{
     </head>
     <body>
     <!--contiene y ordena los elementos-->
-<div class="container">
-<!-- Page Content goes here -->
-<!-- formatos de los campos y letras, (hay varios para que se ajuste a cada tipo de pantalla) -->
-<div class="row ">
-        <div class="hide-on-small-only hide-on-med-only center-align FontLoginAd TitleSizeLogin grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
-        <div class="hide-on-small-only hide-on-large-only center-align FontLoginAd TitleSizeLoginM grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
-        <div class="hide-on-med-only hide-on-large-only center-align LocationFontTitleSmall FontLoginAd TitleSizeLoginS grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
-        <div class="hide-on-small-only hide-on-med-only center-align LocationFontTitle FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
-                <h3>Administrador</h3>
-        </div>
-        <div class="hide-on-small-only hide-on-large-only center-align LocationFontTitle FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
-                <h4>Administrador</h4>
-        </div>
-        <div class="hide-on-med-only hide-on-large-only center-align LocationFontTitle  FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
-                <h5>Administrador</h5>
-        </div>
-    <main>        
-    ');
+    <div class="container">
+    <!-- Page Content goes here -->
+    <!-- formatos de los campos y letras, (hay varios para que se ajuste a cada tipo de pantalla) -->
+    <div class="row ">
+            <div class="hide-on-small-only hide-on-med-only center-align FontLoginAd TitleSizeLogin grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
+            <div class="hide-on-small-only hide-on-large-only center-align FontLoginAd TitleSizeLoginM grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
+            <div class="hide-on-med-only hide-on-large-only center-align LocationFontTitleSmall FontLoginAd TitleSizeLoginS grey-text text-lighten-3 col s12 m12 l12 ">NetBook</div>
+            <div class="hide-on-small-only hide-on-med-only center-align LocationFontTitle FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
+                    <h3>Administrador</h3>
+            </div>
+            <div class="hide-on-small-only hide-on-large-only center-align LocationFontTitle FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
+                    <h4>Administrador</h4>
+            </div>
+            <div class="hide-on-med-only hide-on-large-only center-align LocationFontTitle  FontLoginAd grey-text text-lighten-3 col s12 m12 l12 ">
+                    <h5>Administrador</h5>
+            </div>
+        <main>        
+        ');
 
 	}
 

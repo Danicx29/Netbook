@@ -11,9 +11,9 @@
                   <div class="card-content white-text">
                     
                     <div class="center"><span class="card-title center">Tabla de usuarios
-                    <a href="create.php" class="modal-trigger btn-floating btn-small waves-effect waves-light black">
-                    <i class="material-icons">add</i>
-                  </a>            
+                    <a href="create.php" class="btn waves-effect black tooltipped modal-trigger btn-floating btn-small" data-tooltip='Agregar usuarios'><i class="material-icons">add</i></a>    
+                  <a class='btn waves-effect black tooltipped modal-trigger btn-floating btn-small' href='Tipo_usuarios.php?pagina=1' data-tooltip='Tipos de usuarios'><i class='material-icons'>supervisor_account</i></a>                
+        
                     </span>
                     <form method='post' enctype='multipart/form-data'>
                         <div class='input-field col s12 m8 l8 center'>
