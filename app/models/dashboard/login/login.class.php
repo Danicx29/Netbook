@@ -198,8 +198,20 @@ class login extends Validator{
 			return false;
 		}
 	}
+
 	public function logOut(){
-		return session_destroy();
+		unset($_SESSION['id_usuario_dashboard']);  
+		unset($_SESSION['nickname_dashboard']);  
+		unset($_SESSION['correo_usuario_dashboard']);  
+		unset($_SESSION['foto_dashboard']);  
+		unset($_SESSION['nombre_usuario_dashboard']);  
+		unset($_SESSION['apellidos_usuario_dashboard']);  
+		unset($_SESSION['tipo_usuario_dashboard']);  
+		if( isset($_SESSION['id_usuario_dashboard']) ){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
 ?>

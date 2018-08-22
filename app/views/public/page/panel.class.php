@@ -28,6 +28,10 @@ class Page extends Component{
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 		</head>	
 		<body class='grey darken-4' >
+	");
+		if(isset($_SESSION['id_usuario_public'])){
+			print("
+			
 			<!--Menu principal de inico de usuarios ingresados-->
 			<header>
 				<ul id='dropdown2' class='dropdown-content'>
@@ -79,6 +83,10 @@ class Page extends Component{
 			</nav>
 		</header>	
 		");
+		  }else{
+			Page::showMessage(3,"Debes iniciar sesión", "../sesion/login.php");
+		  }
+
 	}
 	public static function templateHeader2($title){
 		session_start();

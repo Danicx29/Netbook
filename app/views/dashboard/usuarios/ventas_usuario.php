@@ -33,7 +33,7 @@ function Header()
     $this->Cell(0,0.9,'Hora: '.$Hora,0,1,'R',false);    
     $this->Cell(0,0.9,'E-mail: musicworld@hotmail.com',0,0,'C',false); 
     $this->Cell(0,0.9,'Telefono: (+503)xxxx-xxxx',0,1,'R',false);
-    $this->Cell(0,0.9,'Usuario: '.$_SESSION['usuario'],0,0,'C',false);
+    $this->Cell(0,0.9,'Usuario: '.$_SESSION['usuario_dashboard'],0,0,'C',false);
     // Line break
     $this->Ln(1.5);
     }
@@ -43,7 +43,7 @@ function titulo()
     // fuente del header 
     $this->SetFont('Arial','B',14);   
     // celda(ancho en cm,alto en cm,texto para mostrar,borde,ajustar celda,alineacion de la celda,color de fondo)
-    $this->Cell(0,1,'Ventas '.$_SESSION['usuario'],0,0,'C',false);  
+    $this->Cell(0,1,'Ventas '.$_SESSION['usuario_dashboard'],0,0,'C',false);  
     // Line break
     $this->Ln(1);
 }

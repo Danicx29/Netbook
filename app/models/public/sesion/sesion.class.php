@@ -189,7 +189,14 @@ class login extends Validator{
 		}
 	}
 	public function logOut(){
-		return session_destroy();
+		unset($_SESSION['id_usuario_public']);  
+		unset($_SESSION['nickname_public']);  
+		unset($_SESSION['foto_usuario_public']);  
+		if( isset($_SESSION['id_usuario_public']) ){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
 ?>

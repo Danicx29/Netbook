@@ -92,7 +92,7 @@ class Page extends Component{
           <script type='text/javascript' src='../../web/js/chart.js'></script>
     </head>
  ");
- if(isset($_SESSION['id_usuario'])){
+ if(isset($_SESSION['id_usuario_dashboard'])){
   print("
   <body class='blue-grey darken-4'>
   <header>
@@ -128,13 +128,13 @@ class Page extends Component{
           <img src='../../web/img/Fondo_perfil.jpg' class='responsive-img'>
         </div>
         <a href='#!user'>
-          <img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto]'>
+          <img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto_dashboard]'>
         </a>
         <a href='#!name'>
-          <span class='white-text name'>$_SESSION[nickname]</span>
+          <span class='white-text name'>$_SESSION[nickname_dashboard]</span>
         </a>
         <a href='#!email'>
-          <span class='white-text email'>$_SESSION[correo_usuario]</span>
+          <span class='white-text email'>$_SESSION[correo_usuario_dashboard]</span>
         </a>
       </div>
     </li>
@@ -150,13 +150,13 @@ class Page extends Component{
       <div class='grey-text text-lighten-3 divider'></div>
     </li>
     <li>
-      <a class='grey-text text-lighten-3'> <b>Nombre:</b> $_SESSION[nombre_usuario] </a>
+      <a class='grey-text text-lighten-3'> <b>Nombre:</b> $_SESSION[nombre_usuario_dashboard] </a>
     </li>
     <li>
       <div class='grey-text text-lighten-3 divider'></div>
     </li>
     <li>
-      <a class='grey-text text-lighten-3'> <b>Apellido:</b> $_SESSION[apellidos_usuario] </a>
+      <a class='grey-text text-lighten-3'> <b>Apellido:</b> $_SESSION[apellidos_usuario_dashboard] </a>
     </li>
     <br></br>
     <br></br>

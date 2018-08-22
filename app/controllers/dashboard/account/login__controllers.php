@@ -9,18 +9,18 @@ try{
 				if($object->checkNickname()){
                     if($object->setClave_usuario($_POST['password'])){
 						if($object->checkClave_usuario()){
-							$_SESSION['id_usuario'] = $object->getId_usuario();
-							$_SESSION['nickname'] = $object->getNickname();
-							$_SESSION['correo_usuario'] = $object->getCorreo_usuario();
-							$_SESSION['foto'] = $object->getImagen();
-							$_SESSION['nombre_usuario'] = $object->getNombres();
-							$_SESSION['apellidos_usuario'] = $object->getApellidos_usuario();
-							$_SESSION['tipo_usuario'] = $object->getTIPOusuario();
+							$_SESSION['id_usuario_dashboard'] = $object->getId_usuario();
+							$_SESSION['nickname_dashboard'] = $object->getNickname();
+							$_SESSION['correo_usuario_dashboard'] = $object->getCorreo_usuario();
+							$_SESSION['foto_dashboard'] = $object->getImagen();
+							$_SESSION['nombre_usuario_dashboard'] = $object->getNombres();
+							$_SESSION['apellidos_usuario_dashboard'] = $object->getApellidos_usuario();
+							$_SESSION['tipo_usuario_dashboard'] = $object->getTIPOusuario();
 							Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");
 						}else{
 							throw new Exception("Clave inexistente");
 						}
-					}else{
+						}else{
 						throw new Exception("Clave erronea");
 					}
 				}else{

@@ -3,9 +3,9 @@
    <div class="row center">
 <?php
 require_once("../../app/models/dashboard/usuarios/usuarios.class.php");
-if (isset($_SESSION['tipo_usuario'])){
+if (isset($_SESSION['tipo_usuario_dashboard'])){
   $object2 = new mtsUsuario;
-  if($object2->setid_tipousu($_SESSION['tipo_usuario'])){
+  if($object2->setid_tipousu($_SESSION['tipo_usuario_dashboard'])){
     if($object2->CargarPermisos()){
       if($object2->getpermiso_libros()==2){
         print('
