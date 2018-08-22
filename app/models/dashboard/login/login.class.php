@@ -11,7 +11,19 @@ class login extends Validator{
 	private $foto_usuario = null;
 	private $nickname = null;
 	private $TIPOusuario = null;
+	private $FechaContra = null;	
 	//Métodos para sobrecarga de propiedades
+	public function setClave_usuario($value){
+		if($this->validatePassword($value)){
+			$this->clave_usuario = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getClave_usuario(){
+		return $this->clave_usuario;
+	}
 	public function setTIPOusuario($value){
 		if($this->validateId($value)){
 			$this->TIPOusuario = $value;

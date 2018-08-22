@@ -67,6 +67,30 @@ else{
 else{
     Page::showMessage(2, "Error al cargar id", "../menu/menu.php");
 }
+date_default_timezone_set('America/El_Salvador');
+$diaOpcion = date("Y-m-d");
+echo $diaOpcion."<br>";
+$date1 = new DateTime($diaOpcion);
+$date2 = new DateTime("2018-11-17");
+$diff = $date1->diff($date2);
+// will output 2 days
+echo $diff->days. ' days ';
+$diferenciaDias= $diff->days;
+if($diferenciaDias>=90){
+    echo "<br> necesita cambiar la contraseña";
+}
+else{
+    if($diferenciaDias>=85 && $diferenciaDias<90){
+        $diasRestantes=90 - $diferenciaDias;        
+        echo "<br> redireccionar al menu normalmente pero tiene que cambiar su contraseña en: ".$diasRestantes." dias";
+    }
+    else{
+        echo "<br> redireccionar al menu normalmente";
+    }
+}  
+
+
+
 }
 catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
