@@ -273,9 +273,51 @@ class mtsUsuario extends Validator{
 	
 	public function createUsu(){
 		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
-		$sql = "INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`,`tiempo_contraseña`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?,(SELECT NOW()))";
 		$codigo = '0';
 		$params = array($this->codtipouso, $this->nombre_usuario , $this->apellidos_usuario, $hash, $this->correo_usuario, $this->foto_usuario, $this->nickname);
+		
+		$libros= Database::executeRow($sql, $params);
+		
+		if($libros){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function createprimerUsu(){
+		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`,`tiempo_contraseña`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?,(SELECT NOW()))";
+		$tipoUsuariosprim = '1';
+		$params = array($tipoUsuariosprim, $this->nombre_usuario , $this->apellidos_usuario, $hash, $this->correo_usuario, $this->foto_usuario, $this->nickname);
+		
+		$libros= Database::executeRow($sql, $params);
+		
+		if($libros){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function createUsuSinImagen(){
+		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`,  `nickname`,`tiempo_contraseña`) VALUES (NULL, ?, ?, ?, ?, ?, ?,(SELECT NOW()))";
+		$codigo = '0';
+		$params = array($this->codtipouso, $this->nombre_usuario , $this->apellidos_usuario, $hash, $this->correo_usuario, $this->nickname);
+		
+		$libros= Database::executeRow($sql, $params);
+		
+		if($libros){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function createprimUsuSinImagen(){
+		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`,  `nickname`,`tiempo_contraseña`) VALUES (NULL, ?, ?, ?, ?, ?, ?,(SELECT NOW()))";
+		$tipoUsuariosprim = '1';		
+		$params = array($tipoUsuariosprim, $this->nombre_usuario , $this->apellidos_usuario, $hash, $this->correo_usuario, $this->nickname);
 		
 		$libros= Database::executeRow($sql, $params);
 		
@@ -324,6 +366,16 @@ class mtsUsuario extends Validator{
 			return false;
 		}
 	}
+	public function checkPassword(){
+		$sql = "SELECT `clave_usuario` FROM `usuarios` WHERE `id_usuario`=?";
+		$params = array($this->id_usuario);
+		$data = Database::getRow($sql, $params);
+		if(password_verify($this->clave_usuario, $data['clave_usuario'])){
+			return true;
+		}else{
+			return false;
+		}
+	}
 	/*______________________________________________________________________________________________________________
 												TIPO DE USUARIOS
 	  _______________________________________________________________________________________________________________
@@ -347,6 +399,19 @@ class mtsUsuario extends Validator{
 		$sql = "INSERT INTO `tipo_usuario`(`id_tipousu`,`nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$permisoDefult = '1';			
 		$params = array($this->nombre_tipoUsu,$this->permiso_libros, $this->permiso_autoyedit, $this->permiso_categorias, $this->permiso_usuarios, $this->permiso_solicitudes, $this->permiso_ventas, $permisoDefult);
+		return Database::executeRow($sql, $params);
+	}
+	public function createAdministrador(){
+		$sql = "INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES (NULL, 'Administrador', '2', '2', '2', '2', '2', '2', ?)";			
+		$permisoDefult = '1';
+		$params = array($permisoDefult);
+		return Database::executeRow($sql, $params);
+	}
+	public function createCliente(){
+		$sql = "INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES (NULL, 'Cliente', '1', '1', '1', '1', '1', '1', ?)
+		";			
+		$permisoDefult = '2';		
+		$params = array($permisoDefult);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateTipoUsurio(){
@@ -457,9 +522,19 @@ class mtsUsuario extends Validator{
 		return Database::executeRow($sql, $params);
 	}
 	public function updateusu2(){
+		$sql = "UPDATE `usuarios` SET `tipo_usuario` = ?, `nombre_usuario` = ?, `apellidos_usuario` = ?, `correo_usuario` = ?, `foto_usuario` = ?, `nickname` = ? WHERE `usuarios`.`id_usuario` = ?";
+		$params = array($this->codtipouso , $this->nombre_usuario , $this->apellidos_usuario , $this->correo_usuario  , $this->foto_usuario , $this->nickname , $this->id_usuario );
+		return Database::executeRow($sql, $params);
+	}
+	public function updateusu2sinfoto(){
+		$sql = "UPDATE `usuarios` SET `tipo_usuario` = ?, `nombre_usuario` = ?, `apellidos_usuario` = ?, `correo_usuario` = ?, `nickname` = ? WHERE `usuarios`.`id_usuario` = ?";
+		$params = array($this->codtipouso , $this->nombre_usuario , $this->apellidos_usuario , $this->correo_usuario  , $this->nickname , $this->id_usuario );
+		return Database::executeRow($sql, $params);
+	}
+	public function updatePassword(){
 		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
-		$sql = "UPDATE `usuarios` SET `tipo_usuario` = ?, `nombre_usuario` = ?, `apellidos_usuario` = ?, `correo_usuario` = ?, `foto_usuario` = ?, `nickname` = ?, `clave_usuario` = ? WHERE `usuarios`.`id_usuario` = ?";
-		$params = array($this->codtipouso , $this->nombre_usuario , $this->apellidos_usuario , $this->correo_usuario  , $this->foto_usuario , $this->nickname ,$hash, $this->id_usuario );
+		$sql = "UPDATE `usuarios` SET `clave_usuario` = ? WHERE `usuarios`.`id_usuario` = ?";
+		$params = array($hash, $this->id_usuario );
 		return Database::executeRow($sql, $params);
 	}
 	public function GetRporteVentas($value){

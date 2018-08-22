@@ -21,7 +21,7 @@ try{
 							throw new Exception("Clave inexistente");
 						}
 					}else{
-						throw new Exception("Clave menor a 6 caracteres");
+						throw new Exception("Clave erronea");
 					}
 				}else{
 					throw new Exception("Este Alias no perneten a ninguna cuenta");
@@ -32,7 +32,7 @@ try{
 		}
     }
 	else{
-		Page::showMessage(3, "No hay usuarios disponibles", "");
+		Page::showMessage(3, "No hay usuarios disponibles", "Primer_usu_view.php");
 	}
 }catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);

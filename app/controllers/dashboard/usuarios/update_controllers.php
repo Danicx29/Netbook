@@ -18,13 +18,19 @@ try{
                                                         Page::showMessage(1, "El registro se modifico correctamente","usuarios.php" );
                                                     }
                                                     else{
-                                                        Page::showMessage(2, "No se inserto", null);
+                                                        Page::showMessage(2, "No se modifico", null);
                                                     }
                                                 }else{
                                                     throw new Exception($object->getImageError());
                                                 }
                                             }else{
-                                                throw new Exception("Seleccione una imagen");
+                                                $modificarusu2= $object->updateusu2sinfoto();
+                                                    if($modificarusu2){
+                                                        Page::showMessage(1, "El registro se modifico correctamente","usuarios.php" );
+                                                    }
+                                                    else{
+                                                        Page::showMessage(2, "No se modifico", null);
+                                                    }
                                             }
                                         }
                                         else{

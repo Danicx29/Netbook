@@ -166,7 +166,7 @@ class Page extends Component{
     <br></br>
     <div class='row'>
       <div class='col s6'>
-        <a class='EditCenter1 green accent-3-text waves-effect waves-light btn-floating  modal-trigger' href='..\updateusu\update_user.php?id=$_SESSION[id_usuario]' title='Editar'>
+        <a class='EditCenter1 green accent-3-text waves-effect waves-light btn-floating  modal-trigger' href='..\updateusu\update_user.php' title='Editar'>
           <i class='material-icons left'>mode_edit</i>
         </a>
       </div>

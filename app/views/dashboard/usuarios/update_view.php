@@ -42,7 +42,7 @@
             <div class='file-field input-field col s12 m6'>
                 <div class='btn waves-effect'>
                     <span><i class='material-icons'>image</i></span>
-                    <input type='file' name='archivo' required/>
+                    <input type='file' name='archivo' />
                 </div>
                 <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' value='<?php print($object->getImagen()) ?>' placeholder='Seleccione una imagen'/>

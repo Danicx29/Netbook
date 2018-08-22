@@ -23,11 +23,6 @@
                     <label for="nickname">Nombre de usuario</label>
             </div>
             
-            <div class="input-field col s12 m6 l6">
-                <input id="contra1" name="contra1" type="password" class="validate">
-                <label for="contra1">Ingresa la contraseña</label>
-            </div>
-            
             <!--
             <div class="input-field col s12 m6 l6">
                 <input id="contra2" id="contra2" type="password" class="validate">
@@ -42,7 +37,7 @@
             <div class='file-field input-field col s12 m6'>
                 <div class='btn waves-effect'>
                     <span><i class='material-icons'>image</i></span>
-                    <input type='file' name='archivo' required/>
+                    <input type='file' name='archivo' />
                 </div>
                 <div class='file-path-wrapper'>
                     <input type='text' class='file-path validate' value='<?php print($object->getImagen()) ?>' placeholder='Seleccione una imagen'/>
@@ -52,7 +47,9 @@
         </div>
         <div class='row center-align'>
         <a href='../menu/menu.php' class='btn waves-effect red tooltipped' data-tooltip='Cancelar'><i class='material-icons'>cancel</i></a>
-        <button type='submit' name='modifusu' class='btn waves-effect black tooltipped' data-tooltip='Crear'><i class='material-icons'>save</i></button>
+        <button type='submit' name='modifusu' class='btn waves-effect black tooltipped' data-tooltip='Modificar'><i class='material-icons'>save</i></button>
+        <a href='update_user_pass.php' class='btn waves-effect black tooltipped' data-tooltip='Cambiar contraseña'><i class='material-icons'>lock</i></a>        
+
         </div>
     </div>    
 </form>     

@@ -8,48 +8,64 @@ try{
             if($object->setApellidos_usuario($_POST['apellido'])){
                 if($object->setCorreo_usuario($_POST['email'])){
                     if($object->setNickname($_POST['nickname'])){  
-                            if($object->setClave_usuario($_POST['contra1'])){                           
-                                if($object->setcodtipouso($_POST['tipo_usu'])){
-                                    Page::showMessage(3, "aqui deberia de guardar", null);
-                                    if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-                                        if($object->setImagen($_FILES['archivo'])){
-                                            $insertadolibro= $object->createUsu();
-                                            if($insertadolibro){
-                                                Page::showMessage(1, "El registro se ingreso correctamente","usuarios.php" );
-                                            }
-                                            else{
-                                                Page::showMessage(2, "No se inserto", null);
+                        if($_POST['contra1']==$_POST['contra2']){
+                            if($_POST['nickname']!=$_POST['contra1']){
+                                if($object->setClave_usuario($_POST['contra1'])){                           
+                                    if($object->setcodtipouso($_POST['tipo_usu'])){
+                                        Page::showMessage(3, "aqui deberia de guardar", null);
+                                        if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
+                                            if($object->setImagen($_FILES['archivo'])){
+                                                $insertadolibro= $object->createUsu();
+                                                if($insertadolibro){
+                                                    Page::showMessage(1, "El registro se ingreso correctamente","usuarios.php" );
+                                                }
+                                                else{
+                                                    Page::showMessage(2, "No se inserto", null);
+                                                }
+                                            }else{
+                                                throw new Exception($object->getImageError());
                                             }
                                         }else{
-                                            throw new Exception($object->getImageError());
+                                            $insertadoUsuario= $object->createUsuSinImagen();
+                                                if($insertadoUsuario){
+                                                    Page::showMessage(1, "El registro se ingreso correctamente","usuarios.php" );
+                                                }
+                                                else{
+                                                    Page::showMessage(2, "No se inserto", null);
+                                                }
                                         }
-                                    }else{
-                                        throw new Exception("Seleccione una imagen");
+                                    }
+                                    else{
+                                        throw new Exception("Error al ingresar el tipo usuario");      
                                     }
                                 }
                                 else{
-                                    Page::showMessage(2, "Error al ingresar el tipo usuario", null);
+                                    throw new Exception("La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula, al menos una mayúscula y al menos un caracter no alfanumérico.");         
                                 }
                             }
                             else{
-                                Page::showMessage(2, "Error al ingresar clave", null);
-                            }
+                                throw new Exception("Error el nickname tiene que ser diferente de la contraseña");  
+                            }                            
+                        }
+                        else{
+                            throw new Exception("Contraseñas son diferentes");         
+                        }                          
                         
                     }
                    else{
-                       Page::showMessage(2, "Error al ingresar el nickname de usuario", null);
+                        throw new Exception("Error al ingresar el nickname de usuario");         
                        }
                 }
                else{
-                   Page::showMessage(2, "Error al ingresar el email de usuario", null);
+                throw new Exception("Error al ingresar el email de usuario"); 
                    }
              }
             else{
-                Page::showMessage(2, "Error al ingresar el apellido de usuario", null);
+                throw new Exception("Error al ingresar el apellido de usuario"); 
                 }
             }           
         else{
-            Page::showMessage(2, "Error al ingresar el nombre de usuario", null);
+            throw new Exception("Error al ingresar el nombre de usuario");         
         }
         }    
     else{

@@ -1,7 +1,7 @@
 <form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
     <div class="container">
           <!-- Page Content goes here -->
-          <h1 class="white-text center">Agregar usuario</h1>
+          <h3 class="white-text center">Primer usuario</h3>
           <div class="row">
             <!--agregando camposs -->
             <div class="input-field col s12 m6 l6">
@@ -29,13 +29,7 @@
             <div class="input-field col s12 m6 l6">
                 <input id="contra2" name="contra2" type="password" class="validate">
                 <label for="contra2">Confirmar la contraseña</label>
-            </div>
-            <div class='input-field col s12 m6'>
-                    <?php
-                    Page::showSelect("Tipo usuario", "tipo_usu", $object->getcodtipouso(), $object->gettipousu());
-                    ?>
-                </div>
-                                
+            </div>             
             <div class='file-field input-field col s12 m6'>
                 <div class='btn waves-effect'>
                     <span><i class='material-icons'>image</i></span>
@@ -47,9 +41,8 @@
             </div>    
                                
         </div>
-        <div class='row center-align'>
-        <a href='usuarios.php' class='btn waves-effect red tooltipped' data-tooltip='Cancelar'><i class='material-icons'>cancel</i></a>
+        <div class='row center-align'>       
         <button type='submit' name='crearlibro' class='btn waves-effect black tooltipped' data-tooltip='Crear'><i class='material-icons'>save</i></button>
         </div>
         </div>    
-</form>     
+</form>   
