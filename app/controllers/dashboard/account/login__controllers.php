@@ -16,7 +16,34 @@ try{
 							$_SESSION['nombre_usuario_dashboard'] = $object->getNombres();
 							$_SESSION['apellidos_usuario_dashboard'] = $object->getApellidos_usuario();
 							$_SESSION['tipo_usuario_dashboard'] = $object->getTIPOusuario();
-							Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");
+							date_default_timezone_set('America/El_Salvador');
+							$diaOpcion = date("Y-m-d");
+							#echo $diaOpcion."<br>";
+							$date1 = new DateTime($diaOpcion);
+							$date2 = new DateTime($object->getFechaContra());
+							if($date1>=$date2){
+								$diff = $date1->diff($date2);
+								// will output 2 days
+								$diferenciaDias= $diff->days;
+								if($diferenciaDias>=90){
+									# necesita cambiar la contraseña
+									Page::showMessage(3, "Por razones de seguridad usted tiene que cambiar su contraseña (cada 90 dias)", "changuePass.php");
+								}
+								else{
+									if($diferenciaDias>=85 && $diferenciaDias<90){
+										$diasRestantes=90 - $diferenciaDias;        
+									#	redireccionar al menu normalmente pero tiene que cambiar su contraseña en: ".$diasRestantes." dias
+										Page::showMessage(1, "Inicio de sesion correcto (Por razones de seguridad usted tiene que cambiar su contraseña en ".$diasRestantes." dias)", "../menu/menu.php");
+									}
+									else{
+										#redireccionar al menu normalmente
+										Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");
+									}
+								}
+							}else
+							{
+								throw new Exception("Cambio de contraseño forzada o erroneo (fecha de ultimo cambio de contraseña en futuro)");								
+							}							
 						}else{
 							throw new Exception("Clave inexistente");
 						}

@@ -18,10 +18,10 @@ if (isset($_SESSION['tipo_usuario_dashboard'])){
         ');
     }
     else{
-      /*$filename = basename($_SERVER['PHP_SELF']);
+      $filename = basename($_SERVER['PHP_SELF']);
       if ($filename == "libros.php") {
         Page::showMessage(2, "No tienes el rango suficiente para entrar a esta funcion", "../../menu/menu.php");
-      }*/
+      }
     }
     //ocultar o ver autore y editoriales
     if($object2->getpermiso_autoyedit()==2){

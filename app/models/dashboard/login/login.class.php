@@ -13,16 +13,16 @@ class login extends Validator{
 	private $TIPOusuario = null;
 	private $FechaContra = null;	
 	//Métodos para sobrecarga de propiedades
-	public function setClave_usuario($value){
-		if($this->validatePassword($value)){
-			$this->clave_usuario = $value;
+	public function setFechaContra($value){
+		if($this->validateFecha($value)){
+			$this->FechaContra = $value;
 			return true;
 		}else{
 			return false;
 		}
 	}
-	public function getClave_usuario(){
-		return $this->clave_usuario;
+	public function getFechaContra(){
+		return $this->FechaContra;
 	}
 	public function setTIPOusuario($value){
 		if($this->validateId($value)){
@@ -145,7 +145,7 @@ class login extends Validator{
 
 	//Métodos para manejar la sesión del usuario
 	public function checkNickname(){
-		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario` FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
+		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
 		$otro =2;
 		$params = array($this->nickname,$otro);
 		$data = Database::getRow($sql, $params);
@@ -156,7 +156,7 @@ class login extends Validator{
 			$this->nombre_usuario=$data['nombre_usuario'] ;
 			$this->apellidos_usuario=$data['apellidos_usuario'] ;
 			$this->TIPOusuario=$data['tipo_usuario'] ;
-			
+			$this->FechaContra=$data['FechaContra'] ;			
 			return true;
 		}else{
 			return false;

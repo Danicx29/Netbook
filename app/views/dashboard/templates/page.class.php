@@ -27,7 +27,7 @@ class Page extends Component{
             <!-- agregando imagen de fondo del login -->
             <img src="../../web/img/FondoLoginAdm.jpg" class="fondo">
     </head>
-    <body>
+    <body class="grey">
     <!--contiene y ordena los elementos-->
     <div class="container">
     <!-- Page Content goes here -->
@@ -128,7 +128,16 @@ class Page extends Component{
           <img src='../../web/img/Fondo_perfil.jpg' class='responsive-img'>
         </div>
         <a href='#!user'>
-          <img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto_dashboard]'>
+        ");
+        $rutaxs=null;    
+        if($_SESSION['foto_dashboard']==null){
+          $rutaxs="<img class='circle z-depth-5 center-align' src='../../web/img/usuarios/user-profile.png'>";
+        }
+        else{
+          $rutaxs="<img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto_dashboard]'>";                       
+        }         
+          print("
+          $rutaxs
         </a>
         <a href='#!name'>
           <span class='white-text name'>$_SESSION[nickname_dashboard]</span>

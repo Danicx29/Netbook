@@ -546,7 +546,7 @@ class mtsUsuario extends Validator{
 	}
 	public function updatePassword(){
 		$hash = password_hash($this->clave_usuario, PASSWORD_DEFAULT);
-		$sql = "UPDATE `usuarios` SET `clave_usuario` = ? WHERE `usuarios`.`id_usuario` = ?";
+		$sql = "UPDATE `usuarios` SET `clave_usuario` = ?,`tiempo_contraseña`=(SELECT NOW()) WHERE `usuarios`.`id_usuario` = ?";
 		$params = array($hash, $this->id_usuario );
 		return Database::executeRow($sql, $params);
 	}
