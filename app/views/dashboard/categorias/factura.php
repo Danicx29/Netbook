@@ -33,7 +33,7 @@ function Header()
     $this->Cell(0,0.9,'Hora: '.$Hora,0,1,'R',false);    
     $this->Cell(0,0.9,'E-mail: musicworld@hotmail.com',0,0,'C',false); 
     $this->Cell(0,0.9,'Telefono: (+503)7689-0976',0,1,'R',false);
-    $this->Cell(0,0.9,'Usuario: '.$_SESSION['usuario'],0,0,'C',false);
+    $this->Cell(0,0.9,'Usuario: '.$_SESSION['usuario_dashboard'],0,0,'C',false);
     // Line break
     $this->Ln(1.5);
     }

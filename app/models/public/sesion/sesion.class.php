@@ -45,7 +45,7 @@ class login extends Validator{
 		return $this->nombre_usuario;
 	}
 	public function setClave_usuario($value){
-		if($this->validatePassword($value)){
+		if($this->validatePassword2($value)){
 			$this->clave_usuario = $value;
 			return true;
 		}else{
@@ -189,7 +189,14 @@ class login extends Validator{
 		}
 	}
 	public function logOut(){
-		return session_destroy();
+		unset($_SESSION['id_usuario_public']);  
+		unset($_SESSION['nickname_public']);  
+		unset($_SESSION['foto_usuario_public']);  
+		if( isset($_SESSION['id_usuario_public']) ){
+			return false;
+		}else{
+			return true;
+		}
 	}
 }
 ?>

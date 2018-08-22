@@ -219,7 +219,7 @@ class mtsUsuario extends Validator{
 		return $this->nombre_usuario;
 	}
 	public function setClave_usuario($value){
-		if($this->validatePassword($value)){
+		if($this->validatePassword2($value)){
 			$this->clave_usuario = $value;
 			return true;
 		}else{
@@ -508,9 +508,22 @@ class mtsUsuario extends Validator{
 		$params = array(null);
 		return Database::getRows($sql, $params);
 	}
+
 	public function logOut(){
-		return session_destroy();
+		unset($_SESSION['id_usuario_dashboard']);  
+		unset($_SESSION['nickname_dashboard']);  
+		unset($_SESSION['correo_usuario_dashboard']);  
+		unset($_SESSION['foto_dashboard']);  
+		unset($_SESSION['nombre_usuario_dashboard']);  
+		unset($_SESSION['apellidos_usuario_dashboard']);  
+		unset($_SESSION['tipo_usuario_dashboard']);  
+		if( isset($_SESSION['id_usuario_dashboard']) ){
+			return false;
+		}else{
+			return true;
+		}
 	}
+
 	public function deleteusu(){
 		$sql = "DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario` = ?";
 		$params = array($this->id_usuario);

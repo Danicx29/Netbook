@@ -1,9 +1,9 @@
 <?php
 require_once("../../app/models/dashboard/usuarios/usuarios.class.php");
 try{
-    if(isset($_SESSION['id_usuario'])){
+    if(isset($_SESSION['id_usuario_dashboard'])){
     $object = new mtsUsuario;    
-    if($object->setId_usuario($_SESSION['id_usuario'])){        
+    if($object->setId_usuario($_SESSION['id_usuario_dashboard'])){        
         if($object->readUsuario()){
             if(isset($_POST['modifusupass'])){       
                 if($_POST['contra1']==$_POST['contra2']){
