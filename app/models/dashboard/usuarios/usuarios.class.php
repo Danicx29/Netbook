@@ -219,7 +219,7 @@ class mtsUsuario extends Validator{
 		return $this->nombre_usuario;
 	}
 	public function setClave_usuario($value){
-		if($this->validatePassword2($value)){
+		if($this->validatePassword($value)){
 			$this->clave_usuario = $value;
 			return true;
 		}else{
