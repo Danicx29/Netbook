@@ -177,7 +177,7 @@
                                     foreach($Listas as $Lista){
                                     if("$inicio[id_libro]" == "$Lista[id_libro]" ){
                                         print("
-                                        <form method='post' class='col s12'>
+                                        <form method='post'  autocomplete= 'off' class='col s12'>
                                             <div class='row'>
         
                                                 <div class='hide'>
@@ -223,7 +223,7 @@
                                 }
                                 if( $comprar == 0){
                                     print("
-                                        <form method='post' class='col s12'>
+                                        <form method='post'  autocomplete= 'off' class='col s12'>
                                             <div class='row'>
                                                 <div class='hide'>
                                                     <input id='libro' name='libro' value='$inicio[id_libro]' type='text' class='white-text validate '>
@@ -280,7 +280,7 @@
                                 print("
                                 </ul>
                             </div>
-                            <form method='post' class='col s12'>
+                            <form method='post'  autocomplete= 'off' class='col s12'>
                                 <div class='row'>
                                     <div class=' white-text input-field col s10'>
                                         <i class='material-icons prefix white-text'>message </i>

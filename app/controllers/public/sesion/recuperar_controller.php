@@ -30,6 +30,7 @@ try{
                                         $phpmailer->AddAddress($address_to); // recipients email
                                         $phpmailer->Subject = $the_subject;	
                                         $phpmailer->Body .="<h1 style='color:#3498db;'>Recuperacion de contraseña!</h1>";
+<<<<<<< HEAD
                                         $phpmailer->Body .= "<p>Su codigo para </p>";
                                         $phpmailer->Body .= "<p>Fecha y Hora: ".date("d-m-Y h:i:s")."</p>";
                                         $phpmailer->IsHTML(true);
@@ -38,6 +39,12 @@ try{
 
 							Page::showMessage(1, "Inicio de sesion corecto", "../inicio/inicio.php");
 
+=======
+                                        $phpmailer->Body .= "<p>Para restablecer su clave usuario ingrese al siguiente enlace: http://localhost/NetBook_Finally/public/sesion/cambio_clave.php?id='' </p>";
+                                        $phpmailer->Body .= "<p>Fecha y Hora: ".date("d-m-Y h:i:s")."</p>";
+                                        $phpmailer->IsHTML(true);
+                                        $phpmailer->Send();
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 				}else{
 					throw new Exception("Este correo no perneten a ninguna cuenta");
 				}

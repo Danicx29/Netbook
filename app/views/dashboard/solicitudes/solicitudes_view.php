@@ -23,7 +23,7 @@
                     <div class="card-content white-text">
                       <!-- agregando tablas -->
                       <span class="card-title center">Tabla de solicitudes pendientes</span>
-                      <form method='post' enctype='multipart/form-data'>
+                      <form method='post' enctype='multipart/form-data' autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscar' type='text' name='busqueda'/>
@@ -130,7 +130,7 @@
                     <div class="card-content white-text">
                       <!-- creando tabla de editoriales -->
                       <span class="card-title center">Tabla de solicitudes rechazadas</span>
-                      <form method='post' enctype='multipart/form-data'>
+                      <form method='post' enctype='multipart/form-data' autocomplete= 'off'>
                       <div class='input-field col s12 m8 l8 center'>
                           <i class='material-icons prefix'>search</i>
                           <input id='buscarrech' type='text' name='busquedarech'/>
@@ -198,7 +198,7 @@
     <div id='Aceptado$row[id_resena]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea aceptar el comentario de '$row[nickname]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idacep' type='text' name='idacep' value='$row[id_resena]' />
                     </div>
@@ -213,7 +213,7 @@
     <div id='rechaza$row[id_resena]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea rechazar el comentario de '$row[nickname]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data' autocomplete= 'off' >          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idrecha' type='text' name='idrecha' value='$row[id_resena]' />
                     </div>
@@ -234,7 +234,7 @@
     <div id='resta$row[id_resena]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea restaurar como pendiente el comentario de '$row[nickname]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idresta' type='text' name='idresta' value='$row[id_resena]' />
                     </div>
@@ -249,7 +249,7 @@
     <div id='Eliminar$row[id_resena]' class='modal'>
           <div class='modal-content blue-grey lighten-4'>
             <h4>¿Desea eliminar permanentemente el comentario de '$row[nickname]'? </h4> 
-            <form  method='post'enctype='multipart/form-data' >          
+            <form  method='post'enctype='multipart/form-data' autocomplete= 'off' >          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idelim' type='text' name='idelim' value='$row[id_resena]' />
                     </div>

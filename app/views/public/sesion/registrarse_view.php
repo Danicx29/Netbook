@@ -1,6 +1,6 @@
 
     <main>
-            <form method='post'>
+            <form method='post' autocomplete= 'off'>
         <div class="fondo1 ">
             <!--Fondo de pantalla registro-->
             <div class="row">

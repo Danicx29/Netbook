@@ -1,4 +1,4 @@
-<form method='post' enctype='multipart/form-data'>
+<form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
     <div class="container">
           <!-- Page Content goes here -->
           <h1 class="white-text center">Modificar tu usuario</h1>

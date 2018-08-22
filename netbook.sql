@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 11-08-2018 a las 00:12:49
+=======
+-- Tiempo de generación: 10-08-2018 a las 16:30:53
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -19,6 +23,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `netbook`
 --
+<<<<<<< HEAD
+=======
+CREATE DATABASE IF NOT EXISTS `netbook` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
+USE `netbook`;
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 
 DELIMITER $$
 --
@@ -232,6 +241,7 @@ INSERT INTO `listas` (`id_listas`, `nombre_listas`, `codigo_Usu_lista`, `codigoL
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Estructura de tabla para la tabla `permisos`
 --
 
@@ -257,6 +267,8 @@ INSERT INTO `permisos` (`id_permisos`, `permiso_libros`, `permiso_autoyedit`, `p
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Estructura de tabla para la tabla `resenas`
 --
 
@@ -308,17 +320,27 @@ INSERT INTO `sexo_autor` (`id_sexautor`, `nom_sex`) VALUES
 
 CREATE TABLE `tipo_usuario` (
   `id_tipousu` int(11) NOT NULL,
+<<<<<<< HEAD
   `nombre` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `cod_permiso` int(11) NOT NULL
+=======
+  `nombre` varchar(20) COLLATE utf8_spanish2_ci NOT NULL
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
 --
 
+<<<<<<< HEAD
 INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`, `cod_permiso`) VALUES
 (1, 'Administrador', 1),
 (2, 'Cliente', 2);
+=======
+INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`) VALUES
+(1, 'Administrador'),
+(2, 'Cliente');
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 
 -- --------------------------------------------------------
 
@@ -346,14 +368,22 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`, `numb_ingresos`, `tiempo_intentos`, `tiempo_contraseña`) VALUES
 (6, 1, 'Amilcar', 'Torres', '$2y$10$pHoLfiCD56FIcGrTHAh1lOeAHK6st3yHnLMlw6AE2p5n056HAHqTm', 'amijose@hotmail.com', '5ae2c55d2e998.jpg', 'amilcrack', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+<<<<<<< HEAD
 (8, 2, 'Danielqq', 'Alexander', '$2y$10$IIgpYbX8L0sz9zBYW.P7N.MMd7ucQ57gjhwz8cpLL.eXHv5LMchWi', 'danicx@gmail.com', '5ae27da5de971.jpg', 'danicx', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+=======
+(8, 2, 'Danielqq', 'Alexander', '$2y$10$IIgpYbX8L0sz9zBYW.P7N.MMd7ucQ57gjhwz8cpLL.eXHv5LMchWi', 'danicx@gmail.com', '5aff168bc5b91.jpg', 'danicx', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 (10, 2, 'gio', 'godinez', '$2y$10$0FhF1a1sINsUv43HGaz3f.PXCjEMipvvHJxF4UTITEKa4xXTVQVE6', 'adsfad@gmal.com', '', 'geocito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (14, 2, 'kevin', 'galdamez', '$2y$10$VzUuSceM1Tkywf6Iu5EFzOyuTp3hNJMtK7Q./1/E5B8YC8uWI9NSG', 'holaquetal@gmail.com', '', 'galdamecito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (17, 2, 'kevin', 'galdamez', '$2y$10$Eoevln4GrsYVRyfZ023pQ.hTIj91p.ErMmI/.CGC8H1PxIEtYs9/2', 'kevin@gmail.com', '', 'kevincito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (25, 2, 'kevin', 'galdame', '$2y$10$IkYkFMKtiQd2yvlnWWdmkeYl/fVs4Iw78sSUyui0dZa1tx7PWP5Da', 'kevin@hotmail.com', '', 'kevinci', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (27, 2, 'kevin', 'galdamez', '$2y$10$f9w.mXgeAC8I/XJXDmMJFuFPmZL/W7RyPM1Jb3Knon3e0/ivvnxhO', 'kevin@hotmail.com', '', 'kevinn', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (30, 2, 'aramis', 'aramiss', '$2y$10$.htPxxenMiOTawVnUZ6Aqup9G9v8lqfOg.SjKa0hzGgX.wLDSs51a', 'aramis@gmail.com', '5af5ba5fa0c23.jpg', 'aramisjaja', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+<<<<<<< HEAD
 (31, 2, 'rolando', 'Vanegas', '$2y$10$r/kZfouibY/D0Bt0coP3ee4U4wU/KqLRak3w9MSAZp4IFGR8ranPe', 'rolando@gmail.com', '', 'rolan', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+=======
+(31, 2, 'rolando', 'Vanegas', '$2y$10$r/kZfouibY/D0Bt0coP3ee4U4wU/KqLRak3w9MSAZp4IFGR8ranPe', 'rolando@gmail.com', '5aff32167ce0a.jpg', 'rolan', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 (32, 2, 'primo', 'torres', '$2y$10$OXysvKQKKQWaeBTcbR.90OZ3YiYqxusuQUcjSNBsDXtyprV2D0BFC', 'primo@gmail.com', '', 'primox', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (33, 2, 'Araña', 'Godinez', '$2y$10$wsK0BkbqFhlU8mu52h4.HO6ujO/WNqUkTk0t5VZ8WDKFcRprdFzDS', 'aranita@gmail.com', '', 'arañita', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (34, 2, 'aranita', 'aramis', '$2y$10$ypI/GHI9QW9CPrItVm1P1.1iPjtHGzq0hFnAa.3/u52mzDyGFOBUm', 'aranita@gmail.com', '', 'arana', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -495,12 +525,15 @@ ALTER TABLE `listas`
   ADD KEY `codigo_Usu_lista_2` (`codigo_Usu_lista`,`codigoLbr_lista`);
 
 --
+<<<<<<< HEAD
 -- Indices de la tabla `permisos`
 --
 ALTER TABLE `permisos`
   ADD PRIMARY KEY (`id_permisos`);
 
 --
+=======
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Indices de la tabla `resenas`
 --
 ALTER TABLE `resenas`
@@ -519,8 +552,12 @@ ALTER TABLE `sexo_autor`
 -- Indices de la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`id_tipousu`),
   ADD KEY `cod_permiso` (`cod_permiso`);
+=======
+  ADD PRIMARY KEY (`id_tipousu`);
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 
 --
 -- Indices de la tabla `usuarios`
@@ -589,11 +626,14 @@ ALTER TABLE `libros`
 ALTER TABLE `listas`
   MODIFY `id_listas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
   MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+=======
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- AUTO_INCREMENT de la tabla `resenas`
 --
 ALTER TABLE `resenas`
@@ -663,12 +703,15 @@ ALTER TABLE `resenas`
   ADD CONSTRAINT `resenas_ibfk_3` FOREIGN KEY (`cod_estado`) REFERENCES `estado_comentario` (`id_estado`);
 
 --
+<<<<<<< HEAD
 -- Filtros para la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
   ADD CONSTRAINT `tipo_usuario_ibfk_1` FOREIGN KEY (`cod_permiso`) REFERENCES `permisos` (`id_permisos`);
 
 --
+=======
+>>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`

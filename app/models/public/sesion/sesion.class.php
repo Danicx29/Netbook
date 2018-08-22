@@ -117,6 +117,43 @@ class login extends Validator{
 			return false;
 		}
 	}
+	public function checkSesion_usuario(){
+		$sql = "SELECT sesion FROM usuarios WHERE correo_usuario = ? ";
+		$params = array($this->correo_usuario);
+		$data = Database::getRow($sql, $params);
+		if($data['sesion'] != 2){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function IntentoFallidoLogin(){
+		$sql = "SELECT `numb_ingresos` FROM `usuarios` WHERE `correo_usuario`=?";
+		$params = array($this->correo_usuario);
+		$data = Database::getRow($sql, $params);
+		if($data['numb_ingresos'] >= 5){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function IntentoFallidoLogin2(){
+		$sql = "SELECT `numb_ingresos` FROM `usuarios` WHERE `correo_usuario`=?";
+		$params = array($this->correo_usuario);
+		$data = Database::getRow($sql, $params);
+		$intentos =$data['numb_ingresos']+1;
+		if($data['numb_ingresos'] >= 5){
+			$sql2 = "UPDATE `usuarios` SET  `numb_ingresos`= ? WHERE `correo_usuario`=?";
+			$params2 = array($intentos,$this->correo_usuario);
+			$data2 = Database::executeRow($sql2, $params2);
+			return true;
+		}else{
+			$sql3 = "UPDATE `usuarios` SET  `numb_ingresos`= ? WHERE `correo_usuario`=?";
+			$params3 = array($intentos,$this->correo_usuario);
+			$data3 = Database::executeRow($sql3, $params3);
+			return false;
+		}
+	}
 	public function getUsuarios(){
 		$sql = "SELECT id_usuario FROM usuarios ";
 		$params = array(null);

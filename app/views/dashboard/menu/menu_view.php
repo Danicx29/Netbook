@@ -132,7 +132,7 @@ if ($filename == "libros.php") {
             <div class="col s12 m12 l12 ">
               <div class="card-panel hoverable">
                 <h5 class=" blue-text center-align">Ventas</h5>
-                <form method='post' enctype='multipart/form-data'>
+                <form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
                         <div class='input-field col s12 m8 l8 center'>
                             <i class='material-icons prefix'>search</i>
                             <input id='buscar' type='text' name='busqueda'/>

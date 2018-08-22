@@ -1,7 +1,7 @@
 
     <!-- creando las filas y columnas de separacion -->
     <div class="row">
-        <form method='post'>
+        <form method='post' autocomplete= 'off'  autocomplete= 'off'>
             <div class='input-field col s12 m6 l8 center'>
                 <i class='material-icons prefix'>search</i>
                 <input id='buscar' type='text' name='busqueda'/>
@@ -144,7 +144,7 @@
       <div class='modal-content blue-grey lighten-4'>
         <h4>¿Desea eliminar el libro '$row[nombre_libro]'? </h4>
         <p>¿Esta seguro que quiere eliminar este libro? si lo elimina se perdera toda la informacion de este.</p>
-        <form  method='post'enctype='multipart/form-data' >          
+        <form  method='post'enctype='multipart/form-data'  autocomplete= 'off'>          
                   <div class='input-field col s1 m1 hide'>
                     <input id='idlibdel' type='text' name='idlibdel' value='$row[id_libro]' />
                     </div>

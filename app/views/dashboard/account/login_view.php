@@ -1,4 +1,4 @@
-<form method='post'>
+<form method='post'  autocomplete= 'off'>
         <div class="col s12 m12 l12">
                 <ul class="collection">
                         <li class="boxsizes input-field collection-item">
