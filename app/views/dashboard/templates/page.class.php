@@ -27,7 +27,7 @@ class Page extends Component{
             <!-- agregando imagen de fondo del login -->
             <img src="../../web/img/FondoLoginAdm.jpg" class="fondo">
     </head>
-    <body>
+    <body class="grey">
     <!--contiene y ordena los elementos-->
     <div class="container">
     <!-- Page Content goes here -->
@@ -128,7 +128,16 @@ class Page extends Component{
           <img src='../../web/img/Fondo_perfil.jpg' class='responsive-img'>
         </div>
         <a href='#!user'>
-          <img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto_dashboard]'>
+        ");
+        $rutaxs=null;    
+        if($_SESSION['foto_dashboard']==null){
+          $rutaxs="<img class='circle z-depth-5 center-align' src='../../web/img/usuarios/user-profile.png'>";
+        }
+        else{
+          $rutaxs="<img class='circle z-depth-5 center-align' src='../../web/img/usuarios/$_SESSION[foto_dashboard]'>";                       
+        }         
+          print("
+          $rutaxs
         </a>
         <a href='#!name'>
           <span class='white-text name'>$_SESSION[nickname_dashboard]</span>
@@ -182,6 +191,63 @@ class Page extends Component{
 </header>
 <main>
   ");
+  require_once("../../app/models/dashboard/usuarios/usuarios.class.php");
+  $object2 = new mtsUsuario;
+  if($object2->setid_tipousu($_SESSION['tipo_usuario_dashboard'])){
+    if($object2->CargarPermisos()){
+      if($object2->getpermiso_libros()!=2){
+        //dirname es para obtener los directorios padres
+        $filename = dirname($_SERVER['PHP_SELF'],1);
+        //utilizo expresiones regulares para que todo objeto que este en esa carpeta no se pueda mostrar   
+        //sustituir "libros" por el nombre de la carpeta contenadora que se decea bloquear
+        //pongo $ al final de "libros" para indicar que de $filename se cumpla la condicion solo si "libros" esta hasta el final
+        if (preg_match("/libros$/", $filename)) {         
+          header('Location: ../menu/menu.php');
+        } 
+      }
+    if($object2->getpermiso_autoyedit()!=2){
+      //dirname es para obtener los directorios padres
+      $filename = dirname($_SERVER['PHP_SELF'],1);
+      //utilizo expresiones regulares para que todo objeto que este en esa carpeta no se pueda mostrar   
+      //sustituir "libros" por el nombre de la carpeta contenadora que se decea bloquear
+      //pongo $ al final de "libros" para indicar que de $filename se cumpla la condicion solo si "libros" esta hasta el final
+      if (preg_match("/autoryeditorial$/", $filename)) {         
+        header('Location: ../menu/menu.php');
+      } 
+    }
+    if($object2->getpermiso_categorias()!=2){
+      //dirname es para obtener los directorios padres
+      $filename = dirname($_SERVER['PHP_SELF'],1);
+      //utilizo expresiones regulares para que todo objeto que este en esa carpeta no se pueda mostrar   
+      //sustituir "libros" por el nombre de la carpeta contenadora que se decea bloquear
+      //pongo $ al final de "libros" para indicar que de $filename se cumpla la condicion solo si "libros" esta hasta el final
+      if (preg_match("/categorias$/", $filename)) {         
+        header('Location: ../menu/menu.php');
+      } 
+    }
+    if($object2->getpermiso_usuarios()!=2){
+      //dirname es para obtener los directorios padres
+      $filename = dirname($_SERVER['PHP_SELF'],1);
+      //utilizo expresiones regulares para que todo objeto que este en esa carpeta no se pueda mostrar   
+      //sustituir "libros" por el nombre de la carpeta contenadora que se decea bloquear
+      //pongo $ al final de "libros" para indicar que de $filename se cumpla la condicion solo si "libros" esta hasta el final
+      if (preg_match("/usuarios$/", $filename)) {         
+        header('Location: ../menu/menu.php');
+      } 
+    }
+    if($object2->getpermiso_solicitudes()!=2){
+      //dirname es para obtener los directorios padres
+      $filename = dirname($_SERVER['PHP_SELF'],1);
+      //utilizo expresiones regulares para que todo objeto que este en esa carpeta no se pueda mostrar   
+      //sustituir "libros" por el nombre de la carpeta contenadora que se decea bloquear
+      //pongo $ al final de "libros" para indicar que de $filename se cumpla la condicion solo si "libros" esta hasta el final
+      if (preg_match("/solicitudes$/", $filename)) {         
+        header('Location: ../menu/menu.php');
+      } 
+    }
+  }
+}
+
 }else{
   Page::showMessage(3,"Debes iniciar sesión", "../account/index.php");
 }
@@ -307,7 +373,9 @@ class Page extends Component{
         <!-- importando los javascript -->
           <!--Import jQuery before materialize.js-->          
           <script type="text/javascript" src="../../web/js/mains.js"></script>
-          <script type="text/javascript" src="../../web/js/materialize.min.js"></script>
+          <script type="text/javascript" src="../../web/js/materialize.min.js"></script>        
+          <script type="text/javascript" src="../../web/js/inactividad.js"></script>
+          
         </body>
         <!-- dandole formato al footer  -->
         

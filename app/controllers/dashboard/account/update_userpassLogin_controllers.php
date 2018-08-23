@@ -59,16 +59,16 @@ try{
         }   
 }
 else{
-    Page::showMessage(2, "Seleccione un usuario", "usuarios.php");
+    Page::showMessage(2, "Seleccione un usuario", "index.php");
 
 }
 }
 else{
-    Page::showMessage(2, "Error al cargar id", "../menu/menu.php");
+    Page::showMessage(2, "Error al cargar el usuario", "../menu/menu.php");
 }
 }
 catch(Exception $error){
 	Page::showMessage(2, $error->getMessage(), null);
 }
-require_once("../../app/views/dashboard/account/update_passusuview.php");
+require_once("../../app/views/dashboard/account/update_passusuLoginview.php");
 ?>

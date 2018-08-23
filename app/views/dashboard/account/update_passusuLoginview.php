@@ -1,10 +1,7 @@
 <form method='post' enctype='multipart/form-data'  autocomplete= 'off'>
     <div class="container">    
           <!-- Page Content goes here -->
-          <h1 class="white-text center">Modificar tu contraseña</h1>
-          <div class='row center-align'>
-                <label>(La contraseña debera ser cambiada cada 90 dias)</label>
-            </div>
+          <h5 class="white-text center">Modificar tu contraseña</h5>
           <div class='row center-align'>
                 <label>CLAVE ACTUAL</label>
             </div>
@@ -32,7 +29,6 @@
             </div>               
         </div>
         <div class='row center-align'>
-        <a href='update_user.php' class='btn waves-effect red tooltipped' data-tooltip='Cancelar'><i class='material-icons'>cancel</i></a>
         <button type='submit' name='modifusupass' class='btn waves-effect black tooltipped' data-tooltip='Crear'><i class='material-icons'>save</i></button>
         </div>
     </div>    
