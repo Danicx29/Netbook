@@ -14,6 +14,7 @@ class login extends Validator{
 	private $FechaContra = null;	
 	private $numb_ingresos = null;	
 	private $tiempo_intentos = null;
+	private $estado_sesion = null;	
 	
 	//Métodos para sobrecarga de propiedades
 	public function settiempo_intentos($value){
@@ -26,6 +27,17 @@ class login extends Validator{
 	}
 	public function gettiempo_intentos(){
 		return $this->tiempo_intentos;
+	}
+	public function setestado_sesion($value){
+		if($this->validateEnteros($value)){
+			$this->estado_sesion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getestado_sesion(){
+		return $this->estado_sesion;
 	}
 
 	public function setnumb_ingresos($value){
@@ -175,13 +187,18 @@ class login extends Validator{
 		$params = array($this->numb_ingresos, $this->id_usuario);
 		return Database::executeRow($sql, $params);
 	}
+	public function updateEstadoSesion(){
+		$sql = "UPDATE `usuarios` SET `estado_sesion`=? WHERE `id_usuario`=?";
+		$params = array($this->estado_sesion, $this->id_usuario);
+		return Database::executeRow($sql, $params);
+	}
 	public function updateLastNumeroIntentos(){
 		$sql = "UPDATE `usuarios` SET `numb_ingresos`= ?,`tiempo_intentos`=? WHERE `id_usuario`=?";
 		$params = array($this->numb_ingresos,$this->tiempo_intentos, $this->id_usuario);
 		return Database::executeRow($sql, $params);
 	}
 	public function checkNickname(){
-		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,numb_ingresos,`tiempo_intentos`,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
+		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,numb_ingresos,`tiempo_intentos`,estado_sesion,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
 		$otro =2;
 		$params = array($this->nickname,$otro);
 		$data = Database::getRow($sql, $params);
@@ -195,9 +212,21 @@ class login extends Validator{
 			$this->FechaContra=$data['FechaContra'];
 			$this->numb_ingresos=$data['numb_ingresos'];			
 			$this->tiempo_intentos=$data['tiempo_intentos'];
+			$this->estado_sesion=$data['estado_sesion'];		
 			return true;
 		}else{
 			return false;
+		}
+	}
+	public function readEstadoSesion(){
+		$sql = "SELECT `estado_sesion` FROM `usuarios` WHERE `id_usuario`=?";
+		$params = array($this->id_usuario);
+		$user = Database::getRow($sql, $params);
+		if($user){
+			$this->estado_sesion=$user['estado_sesion'];
+			return true;
+		}else{
+			return null;
 		}
 	}
 	public function getUsuarios(){

@@ -1,17 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-<<<<<<< HEAD
--- Tiempo de generación: 11-08-2018 a las 00:12:49
-=======
--- Tiempo de generación: 10-08-2018 a las 16:30:53
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 23-08-2018 a las 08:58:15
+-- Versión del servidor: 10.1.30-MariaDB
+-- Versión de PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,11 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `netbook`
 --
-<<<<<<< HEAD
-=======
-CREATE DATABASE IF NOT EXISTS `netbook` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish2_ci;
-USE `netbook`;
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 
 DELIMITER $$
 --
@@ -94,7 +87,8 @@ INSERT INTO `cuentas` (`id_cuenta`, `codigoUsa_cuenta`, `numeroTarj_cuenta`, `fe
 (9, 30, 12354, '09-2017', 532),
 (10, 31, 1234543, '09-2018', 123),
 (11, 32, 43646334, '09-2018', 123),
-(12, 34, 1234568, '09-2019', 324);
+(12, 34, 1234568, '09-2019', 324),
+(13, 42, 1289321893, '08-2018', 123);
 
 -- --------------------------------------------------------
 
@@ -206,12 +200,12 @@ INSERT INTO `libros` (`id_libro`, `nombre_libro`, `descripcion_libro`, `NumVent_
 (2, 'Origen', 'hola', 2, 998, 5, 2, 5, 0.0, 100.00, '5ae365960a22a.jpg', ''),
 (10, 'El rey de la selva', 'es un libro de aventuras y mucha diversión', 2, 29, 8, 3, 3, 4.2, 5.01, '5ae3277d7b687.jpg', ''),
 (11, 'Lord of the ring', 'historia epica  de 3  hobbits y una mago ', 1, 290, 5, 1, 3, 0.0, 18.00, '5ae366ef6ef18.jpg', ''),
-(12, '20000 leguas de viaje submarino', 'es una travesía fantástica en la profundidades del mar ', 8, 800, 8, 3, 3, 0.0, 35.00, '5ae367b85682d.jpg', ''),
+(12, '20000 leguas de viaje submarino', 'Veinte mil leguas de viaje submarino es una de las obras literarias más conocidas del escritor francés Julio Verne. ', 8, 800, 8, 3, 3, 0.0, 35.00, '5ae367b85682d.jpg', ''),
 (13, 'asesinato en el expreso de oriente', 'novela policial sobre un asesianto', 3, 340, 9, 3, 4, 2.7, 20.00, '5ae3689dcebd6.jpg', ''),
 (14, 'harry potter y el prisionero de askaban', 'buen  libro', 5, 654, 5, 7, 11, 0.0, 90.00, '5ae37547316c0.jpg', ''),
 (15, 'Rosita fresita', 'solo para morales ', 4, 90, 7, 3, 4, 0.0, 90.00, '5ae375c59e0b9.jpg', ''),
 (16, 'el gato negro', 'da miedo', 7, 3, 5, 1, 2, 0.0, 2.01, '5ae376b7cf26b.jpg', ''),
-(17, 'Libro itr', 'Libro salesiano', 1, 0, 5, 1, 2, 3.8, 0.01, '5ae37a3e204b7.jpg', ''),
+(17, 'Libro itr', 'hola que bonito libro ajskdjsdkaksjdfadsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff', 1, 2, 5, 1, 2, 0.0, 0.01, '5ae37a3e204b7.jpg', 'https://www.facebook.com/'),
 (18, 'Aliens', 'es una historia muy interesante ', 3, 9, 5, 7, 2, 0.0, 11.01, '5b24273f1e1d6.jpg', 'https://www.mediafire.com/');
 
 -- --------------------------------------------------------
@@ -241,34 +235,6 @@ INSERT INTO `listas` (`id_listas`, `nombre_listas`, `codigo_Usu_lista`, `codigoL
 -- --------------------------------------------------------
 
 --
-<<<<<<< HEAD
--- Estructura de tabla para la tabla `permisos`
---
-
-CREATE TABLE `permisos` (
-  `id_permisos` int(11) NOT NULL,
-  `permiso_libros` int(11) NOT NULL,
-  `permiso_autoyedit` int(11) NOT NULL,
-  `permiso_categorias` int(11) NOT NULL,
-  `permiso_usuarios` int(11) NOT NULL,
-  `permiso_solicitudes` int(11) NOT NULL,
-  `permiso_ventas` int(11) NOT NULL,
-  `permiso_publico` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
-
---
--- Volcado de datos para la tabla `permisos`
---
-
-INSERT INTO `permisos` (`id_permisos`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES
-(1, 1, 1, 1, 1, 1, 1, 1),
-(2, 0, 0, 0, 0, 0, 0, 1);
-
--- --------------------------------------------------------
-
---
-=======
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Estructura de tabla para la tabla `resenas`
 --
 
@@ -320,27 +286,25 @@ INSERT INTO `sexo_autor` (`id_sexautor`, `nom_sex`) VALUES
 
 CREATE TABLE `tipo_usuario` (
   `id_tipousu` int(11) NOT NULL,
-<<<<<<< HEAD
-  `nombre` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
-  `cod_permiso` int(11) NOT NULL
-=======
-  `nombre` varchar(20) COLLATE utf8_spanish2_ci NOT NULL
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
+  `nombre` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
+  `permiso_libros` int(11) NOT NULL,
+  `permiso_autoyedit` int(11) NOT NULL,
+  `permiso_categorias` int(11) NOT NULL,
+  `permiso_usuarios` int(11) NOT NULL,
+  `permiso_solicitudes` int(11) NOT NULL,
+  `permiso_ventas` int(11) NOT NULL,
+  `permiso_publico` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_usuario`
 --
 
-<<<<<<< HEAD
-INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`, `cod_permiso`) VALUES
-(1, 'Administrador', 1),
-(2, 'Cliente', 2);
-=======
-INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`) VALUES
-(1, 'Administrador'),
-(2, 'Cliente');
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
+INSERT INTO `tipo_usuario` (`id_tipousu`, `nombre`, `permiso_libros`, `permiso_autoyedit`, `permiso_categorias`, `permiso_usuarios`, `permiso_solicitudes`, `permiso_ventas`, `permiso_publico`) VALUES
+(1, 'Administrador', 2, 2, 2, 2, 2, 2, 1),
+(2, 'Cliente', 1, 1, 1, 1, 1, 1, 2),
+(4, 'Administrador de libros', 2, 2, 2, 1, 2, 1, 1),
+(6, 'moderador de comentarios', 2, 1, 1, 1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -359,36 +323,29 @@ CREATE TABLE `usuarios` (
   `nickname` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
   `numb_ingresos` int(1) NOT NULL DEFAULT '0',
   `tiempo_intentos` datetime NOT NULL,
-  `tiempo_contraseña` datetime NOT NULL
+  `tiempo_contraseña` datetime NOT NULL,
+  `estado_sesion` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`, `numb_ingresos`, `tiempo_intentos`, `tiempo_contraseña`) VALUES
-(6, 1, 'Amilcar', 'Torres', '$2y$10$pHoLfiCD56FIcGrTHAh1lOeAHK6st3yHnLMlw6AE2p5n056HAHqTm', 'amijose@hotmail.com', '5ae2c55d2e998.jpg', 'amilcrack', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-<<<<<<< HEAD
-(8, 2, 'Danielqq', 'Alexander', '$2y$10$IIgpYbX8L0sz9zBYW.P7N.MMd7ucQ57gjhwz8cpLL.eXHv5LMchWi', 'danicx@gmail.com', '5ae27da5de971.jpg', 'danicx', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-=======
-(8, 2, 'Danielqq', 'Alexander', '$2y$10$IIgpYbX8L0sz9zBYW.P7N.MMd7ucQ57gjhwz8cpLL.eXHv5LMchWi', 'danicx@gmail.com', '5aff168bc5b91.jpg', 'danicx', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
-(10, 2, 'gio', 'godinez', '$2y$10$0FhF1a1sINsUv43HGaz3f.PXCjEMipvvHJxF4UTITEKa4xXTVQVE6', 'adsfad@gmal.com', '', 'geocito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 2, 'kevin', 'galdamez', '$2y$10$VzUuSceM1Tkywf6Iu5EFzOyuTp3hNJMtK7Q./1/E5B8YC8uWI9NSG', 'holaquetal@gmail.com', '', 'galdamecito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(17, 2, 'kevin', 'galdamez', '$2y$10$Eoevln4GrsYVRyfZ023pQ.hTIj91p.ErMmI/.CGC8H1PxIEtYs9/2', 'kevin@gmail.com', '', 'kevincito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(25, 2, 'kevin', 'galdame', '$2y$10$IkYkFMKtiQd2yvlnWWdmkeYl/fVs4Iw78sSUyui0dZa1tx7PWP5Da', 'kevin@hotmail.com', '', 'kevinci', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(27, 2, 'kevin', 'galdamez', '$2y$10$f9w.mXgeAC8I/XJXDmMJFuFPmZL/W7RyPM1Jb3Knon3e0/ivvnxhO', 'kevin@hotmail.com', '', 'kevinn', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(30, 2, 'aramis', 'aramiss', '$2y$10$.htPxxenMiOTawVnUZ6Aqup9G9v8lqfOg.SjKa0hzGgX.wLDSs51a', 'aramis@gmail.com', '5af5ba5fa0c23.jpg', 'aramisjaja', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-<<<<<<< HEAD
-(31, 2, 'rolando', 'Vanegas', '$2y$10$r/kZfouibY/D0Bt0coP3ee4U4wU/KqLRak3w9MSAZp4IFGR8ranPe', 'rolando@gmail.com', '', 'rolan', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-=======
-(31, 2, 'rolando', 'Vanegas', '$2y$10$r/kZfouibY/D0Bt0coP3ee4U4wU/KqLRak3w9MSAZp4IFGR8ranPe', 'rolando@gmail.com', '5aff32167ce0a.jpg', 'rolan', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
-(32, 2, 'primo', 'torres', '$2y$10$OXysvKQKKQWaeBTcbR.90OZ3YiYqxusuQUcjSNBsDXtyprV2D0BFC', 'primo@gmail.com', '', 'primox', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(33, 2, 'Araña', 'Godinez', '$2y$10$wsK0BkbqFhlU8mu52h4.HO6ujO/WNqUkTk0t5VZ8WDKFcRprdFzDS', 'aranita@gmail.com', '', 'arañita', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(34, 2, 'aranita', 'aramis', '$2y$10$ypI/GHI9QW9CPrItVm1P1.1iPjtHGzq0hFnAa.3/u52mzDyGFOBUm', 'aranita@gmail.com', '', 'arana', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(35, 2, 'Gerardo', 'Alexis', '$2y$10$26hHaJ2hb4Y07Fx8VODzLOBi5wCWmTXLNUqPVcyQqJUr/QTQDY8rK', 'gerardo@gmail.com', '', 'gerado', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(37, 2, 'carlos', 'montes', '$2y$10$ERwFGNPyxyHg2dokfu3V2uTW9C1jLbfynAvHz2tEYYZAw7Pu0kRka', 'asjd@gmail.com', '', 'carlitos', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `usuarios` (`id_usuario`, `tipo_usuario`, `nombre_usuario`, `apellidos_usuario`, `clave_usuario`, `correo_usuario`, `foto_usuario`, `nickname`, `numb_ingresos`, `tiempo_intentos`, `tiempo_contraseña`, `estado_sesion`) VALUES
+(6, 1, 'Amilcars', 'Torres', '$2y$10$Jt6GgE.XDitTGycF2x1Mcu3fExuj.cnOH/Pb3HEC3iG26n4.Sjho.', 'amijose@hotmail.com', '5ae2c55d2e998.jpg', 'amilcrack', 0, '2018-08-22 22:53:49', '2018-08-22 16:35:20', 1),
+(8, 2, 'Danielqq', 'Alexander', '$2y$10$Jt6GgE.XDitTGycF2x1Mcu3fExuj.cnOH/Pb3HEC3iG26n4.Sjho.', 'danicx@gmail.com', '5ae27da5de971.jpg', 'danicx', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(10, 4, 'gio', 'godinez', '$2y$10$0FhF1a1sINsUv43HGaz3f.PXCjEMipvvHJxF4UTITEKa4xXTVQVE6', 'adsfad@gmal.com', '5b7babe146969.jpg', 'geocito', 1, '2018-03-28 00:00:00', '0000-00-00 00:00:00', 0),
+(17, 2, 'kevin', 'galdamez', '$2y$10$Eoevln4GrsYVRyfZ023pQ.hTIj91p.ErMmI/.CGC8H1PxIEtYs9/2', 'kevin@gmail.com', '', 'kevincito', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(25, 2, 'kevin', 'galdame', '$2y$10$IkYkFMKtiQd2yvlnWWdmkeYl/fVs4Iw78sSUyui0dZa1tx7PWP5Da', 'kevin@hotmail.com', '', 'kevinci', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(27, 2, 'kevin', 'galdamez', '$2y$10$f9w.mXgeAC8I/XJXDmMJFuFPmZL/W7RyPM1Jb3Knon3e0/ivvnxhO', 'kevin@hotmail.com', '', 'kevinn', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(30, 2, 'aramis', 'aramiss', '$2y$10$.htPxxenMiOTawVnUZ6Aqup9G9v8lqfOg.SjKa0hzGgX.wLDSs51a', 'aramis@gmail.com', '5af5ba5fa0c23.jpg', 'aramisjaja', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(31, 2, 'rolando', 'Vanegas', '$2y$10$r/kZfouibY/D0Bt0coP3ee4U4wU/KqLRak3w9MSAZp4IFGR8ranPe', 'rolando@gmail.com', '', 'rolan', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(32, 2, 'primo', 'torres', '$2y$10$OXysvKQKKQWaeBTcbR.90OZ3YiYqxusuQUcjSNBsDXtyprV2D0BFC', 'primo@gmail.com', '', 'primox', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(34, 2, 'aranita', 'aramis', '$2y$10$ypI/GHI9QW9CPrItVm1P1.1iPjtHGzq0hFnAa.3/u52mzDyGFOBUm', 'aranita@gmail.com', '', 'arana', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
+(39, 1, 'Juan', 'Campos', '$2y$10$v87JnuVI/.yb5KeyoZGyjujbERrItyw2IRpccd.ps1Sz0ElqBVauK', 'juanito@gmail.com', '5b7cf6f7d964d.png', 'juanito', 0, '0000-00-00 00:00:00', '2018-08-22 14:41:48', 0),
+(40, 4, 'Javier', 'Torres', '$2y$10$7WP1zTilwPPTv34B0yFUjue98nzjPLBUFNc2jC6Y9HrUPLvi07UcC', 'javi@gmail.com', '5b7cfaa582b0e.jpg', 'javi', 0, '0000-00-00 00:00:00', '2018-08-21 23:54:45', 0),
+(41, 6, 'joses', 'Torres', '$2y$10$5hpwvFu.71FCcPxFpUBmhOAH3V89Ewz.02sStxPsXKAunuOwV/8ie', 'josesito@gmail.com', '', 'josesito', 0, '0000-00-00 00:00:00', '2018-08-22 14:05:56', 0),
+(42, 2, 'Terry', 'Torres', '$2y$10$4Go7.UE.0Cfi4Lx56cSrAOMX5stemLHDgDGPmtzOb9OpbVV260x4i', 'terry@gmail.com', '', 'Territo', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -525,15 +482,6 @@ ALTER TABLE `listas`
   ADD KEY `codigo_Usu_lista_2` (`codigo_Usu_lista`,`codigoLbr_lista`);
 
 --
-<<<<<<< HEAD
--- Indices de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_permisos`);
-
---
-=======
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Indices de la tabla `resenas`
 --
 ALTER TABLE `resenas`
@@ -552,12 +500,7 @@ ALTER TABLE `sexo_autor`
 -- Indices de la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
-<<<<<<< HEAD
-  ADD PRIMARY KEY (`id_tipousu`),
-  ADD KEY `cod_permiso` (`cod_permiso`);
-=======
   ADD PRIMARY KEY (`id_tipousu`);
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 
 --
 -- Indices de la tabla `usuarios`
@@ -595,74 +538,79 @@ ALTER TABLE `ventas`
 --
 ALTER TABLE `autores`
   MODIFY `id_autor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT de la tabla `cuentas`
 --
 ALTER TABLE `cuentas`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT de la tabla `editorial`
 --
 ALTER TABLE `editorial`
   MODIFY `id_editorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de la tabla `estado_comentario`
 --
 ALTER TABLE `estado_comentario`
   MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `generos`
 --
 ALTER TABLE `generos`
   MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
   MODIFY `id_libro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
 --
 -- AUTO_INCREMENT de la tabla `listas`
 --
 ALTER TABLE `listas`
   MODIFY `id_listas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
-<<<<<<< HEAD
--- AUTO_INCREMENT de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  MODIFY `id_permisos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
-=======
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- AUTO_INCREMENT de la tabla `resenas`
 --
 ALTER TABLE `resenas`
   MODIFY `id_resena` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT de la tabla `sexo_autor`
 --
 ALTER TABLE `sexo_autor`
   MODIFY `id_sexautor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT de la tabla `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
-  MODIFY `id_tipousu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_tipousu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
 --
 -- AUTO_INCREMENT de la tabla `valoracion`
 --
 ALTER TABLE `valoracion`
   MODIFY `id_valoracion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
   MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -703,15 +651,6 @@ ALTER TABLE `resenas`
   ADD CONSTRAINT `resenas_ibfk_3` FOREIGN KEY (`cod_estado`) REFERENCES `estado_comentario` (`id_estado`);
 
 --
-<<<<<<< HEAD
--- Filtros para la tabla `tipo_usuario`
---
-ALTER TABLE `tipo_usuario`
-  ADD CONSTRAINT `tipo_usuario_ibfk_1` FOREIGN KEY (`cod_permiso`) REFERENCES `permisos` (`id_permisos`);
-
---
-=======
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
 -- Filtros para la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -731,6 +670,7 @@ ALTER TABLE `ventas`
   ADD CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`codigoLib_venta`) REFERENCES `libros` (`id_libro`),
   ADD CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`codigoCun_venta`) REFERENCES `cuentas` (`id_cuenta`),
   ADD CONSTRAINT `ventas_ibfk_3` FOREIGN KEY (`cod_usu`) REFERENCES `usuarios` (`id_usuario`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

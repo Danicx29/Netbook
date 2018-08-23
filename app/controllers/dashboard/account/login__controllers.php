@@ -47,9 +47,27 @@ try{
 											if($object->setnumb_ingresos($numeroSuccesIntentos)){
 												$modificarNum= $object->updateNumeroIntentos();
 												if($modificarNum){
-													#	redireccionar al menu normalmente pero tiene que cambiar su contraseña en: ".$diasRestantes." dias
-													$diasRestantes=90 - $diferenciaDias;
-													Page::showMessage(1, "Inicio de sesion correcto (Por razones de seguridad usted tiene que cambiar su contraseña en ".$diasRestantes." dias)", "../menu/menu.php");
+													$Id_estado= $object->getestado_sesion();
+													if($Id_estado==0){
+														$sumaEstadoSesion=$Id_estado+1;
+														if($object->setestado_sesion($sumaEstadoSesion)){
+															$object->updateEstadoSesion();
+															#	redireccionar al menu normalmente pero tiene que cambiar su contraseña en: ".$diasRestantes." dias
+															$diasRestantes=90 - $diferenciaDias;
+															Page::showMessage(1, "Inicio de sesion correcto (Por razones de seguridad usted tiene que cambiar su contraseña en ".$diasRestantes." dias)", "../menu/menu.php");						
+														}
+													}
+													else if($Id_estado==1){
+														$sumaEstadoSesion=$Id_estado+1;
+														if($object->setestado_sesion($sumaEstadoSesion)){
+														$object->updateEstadoSesion();
+														#redireccionar al menu normalmente
+														throw new Exception("Error la sesion de este usuario ya estaba activo, por razón de seguridad esta cuenta se suspendera");						
+														}
+													}
+													else if($Id_estado==2){
+														throw new Exception("Por motivos de seguridad este usuario a sido suspendido, revisar correo electronico con las instrucciones a seguir");
+													}
 												}
 											}
 											else{
@@ -61,8 +79,26 @@ try{
 											if($object->setnumb_ingresos($numeroSuccesIntentos)){
 												$modificarNum= $object->updateNumeroIntentos();
 												if($modificarNum){
-													#redireccionar al menu normalmente
-													Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");
+													$Id_estado= $object->getestado_sesion();
+													if($Id_estado==0){
+														$sumaEstadoSesion=$Id_estado+1;
+														if($object->setestado_sesion($sumaEstadoSesion)){
+															$object->updateEstadoSesion();
+															#redireccionar al menu normalmente
+															Page::showMessage(1, "Inicio de sesion correcto", "../menu/menu.php");								
+														}
+													}
+													else if($Id_estado==1){
+														$sumaEstadoSesion=$Id_estado+1;
+														if($object->setestado_sesion($sumaEstadoSesion)){
+														$object->updateEstadoSesion();
+														#redireccionar al menu normalmente
+														throw new Exception("Error la sesion de este usuario ya estaba activo, por razón de seguridad esta cuenta se suspendera");						
+														}
+													}
+													else if($Id_estado==2){
+														throw new Exception("Por motivos de seguridad este usuario a sido suspendido, revisar correo electronico con las instrucciones a seguir");
+													}													
 												}
 											}
 											else{

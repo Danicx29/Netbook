@@ -14,6 +14,8 @@ class mtsUsuario extends Validator{
 	private $fechaVen_cuenta=null;
 	private $cvc_cuenta=null;
 	private $numb_ingresos = null;	
+	private $estado_sesion = null;	
+
 	//tipo usuarios
 	private $nombre_tipoUsu=null;
 	private $id_tipousu = null;
@@ -28,8 +30,22 @@ class mtsUsuario extends Validator{
 		
 	//Métodos para sobrecarga de propiedades
 	//metodo para ingresar nombre del tipo usu
+	public function gettiempo_intentos(){
+		return $this->tiempo_intentos;
+	}
+	public function setestado_sesion($value){
+		if($this->validateEnteros($value)){
+			$this->estado_sesion = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getestado_sesion(){
+		return $this->estado_sesion;
+	}
 	public function setnumb_ingresos($value){
-		if($this->validateEstados($value)){
+		if($this->validateEnteros($value)){
 			$this->numb_ingresos = $value;
 			return true;
 		}else{
@@ -455,7 +471,17 @@ class mtsUsuario extends Validator{
 			return null;
 		}
 	}
-	
+	public function readEstadoSesion(){
+		$sql = "SELECT `estado_sesion` FROM `usuarios` WHERE `id_usuario`=?";
+		$params = array($this->id_usuario);
+		$user = Database::getRow($sql, $params);
+		if($user){
+			$this->estado_sesion=$user['estado_sesion'];
+			return true;
+		}else{
+			return null;
+		}
+	}
 	/*______________________________________________________________________________________________________________
 													USUARIOS
 	  _______________________________________________________________________________________________________________

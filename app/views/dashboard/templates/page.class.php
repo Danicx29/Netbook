@@ -94,7 +94,7 @@ class Page extends Component{
  ");
  if(isset($_SESSION['id_usuario_dashboard'])){
   print("
-  <body class='blue-grey darken-4'>
+  <body class='blue-grey darken-4' >
   <header>
   <!-- agregando de nav a la pagina -->
   <div class='navbar-fixed'>
@@ -192,7 +192,15 @@ class Page extends Component{
 <main>
   ");
   require_once("../../app/models/dashboard/usuarios/usuarios.class.php");
-  $object2 = new mtsUsuario;
+  $object2 = new mtsUsuario;  
+  if($object2->setId_usuario($_SESSION['id_usuario_dashboard'])){
+    if($object2->readEstadoSesion()){
+      if($object2->getestado_sesion()!=1){
+        header('Location: ../account/logout.php');
+      }
+    }
+  }
+
   if($object2->setid_tipousu($_SESSION['tipo_usuario_dashboard'])){
     if($object2->CargarPermisos()){
       if($object2->getpermiso_libros()!=2){
@@ -375,7 +383,7 @@ class Page extends Component{
           <script type="text/javascript" src="../../web/js/mains.js"></script>
           <script type="text/javascript" src="../../web/js/materialize.min.js"></script>        
           <script type="text/javascript" src="../../web/js/inactividad.js"></script>
-          
+          <script type="text/javascript" src="../../web/js/CerrarVentanas.js"></script>          
         </body>
         <!-- dandole formato al footer  -->
         
