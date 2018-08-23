@@ -373,7 +373,9 @@ class Page extends Component{
         <!-- importando los javascript -->
           <!--Import jQuery before materialize.js-->          
           <script type="text/javascript" src="../../web/js/mains.js"></script>
-          <script type="text/javascript" src="../../web/js/materialize.min.js"></script>
+          <script type="text/javascript" src="../../web/js/materialize.min.js"></script>        
+          <script type="text/javascript" src="../../web/js/inactividad.js"></script>
+          
         </body>
         <!-- dandole formato al footer  -->
         

@@ -59,15 +59,11 @@ else{
 //usuarios
 if($object2->getpermiso_usuarios()==2){
     print('
-    <div class=" col s6 m4 l4 hide-on-small-only">
+    <div class=" col s6 m4 l4">
       <a href="../usuarios/usuarios.php">
         <img class=" waves-effect waves-green btn-floating  ImagesSizes spaceimage2 circle z-depth-5" src="../../web/img/icono_usuarios.png"
           title="Usuarios" alt="Usuarios">
       </a>
-    </div>
-    <div class=" col s6 m4 l4 hide-on-large-only hide-on-med-only ">
-      <img class=" waves-effect waves-green btn-floating    circle z-depth-5" src="../../web/img/icono_usuarios.png"
-        title="Usuarios" alt="Usuarios">
     </div>
     ');
 }
