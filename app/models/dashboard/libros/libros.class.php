@@ -39,17 +39,19 @@ class libros extends Validator{
 		return $this->nombre_libro;
   }
   
-  public function setlink($value){
-	
-		$this->link = $value;
-		return true;
-
+  public function setlink($value){	
+		if($this->validateLink($value)){
+			$this->link = $value;
+			return true;
+		}else{
+			return false;
+		}
 }
 public function getlink(){
 	return $this->link;
 }
   public function setdescrip_libro($value){
-		if($value){
+		if($this->validateAlphabetic($value,1,500)){
 				$this->descrip_libro = $value;
 				return true;
 			

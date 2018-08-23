@@ -13,6 +13,7 @@ class mtsUsuario extends Validator{
 	private $numeroTarj_cuenta=null;
 	private $fechaVen_cuenta=null;
 	private $cvc_cuenta=null;
+	private $numb_ingresos = null;	
 	//tipo usuarios
 	private $nombre_tipoUsu=null;
 	private $id_tipousu = null;
@@ -27,6 +28,17 @@ class mtsUsuario extends Validator{
 		
 	//Métodos para sobrecarga de propiedades
 	//metodo para ingresar nombre del tipo usu
+	public function setnumb_ingresos($value){
+		if($this->validateEstados($value)){
+			$this->numb_ingresos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getnumb_ingresos(){
+		return $this->numb_ingresos;
+	}
 	public function setnombre_tipoUsu($value){
 		if($this->validateAlphabetic($value, 1, 50)){
 			$this->nombre_tipoUsu = $value;
@@ -527,6 +539,11 @@ class mtsUsuario extends Validator{
 	public function deleteusu(){
 		$sql = "DELETE FROM `usuarios` WHERE `usuarios`.`id_usuario` = ?";
 		$params = array($this->id_usuario);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateNumeroIntentos(){
+		$sql = "UPDATE `usuarios` SET `numb_ingresos`= ? WHERE `id_usuario`=?";
+		$params = array($this->numb_ingresos, $this->id_usuario);
 		return Database::executeRow($sql, $params);
 	}
 	public function updateusu(){

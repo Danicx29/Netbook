@@ -52,11 +52,11 @@ try{
             else{
                 
             }
+
         }
         else{
-            throw new Exception("No se cargaron los datos");      
-            
-        }   
+            throw new Exception("No se cargaron los datos");    
+        } 
 }
 else{
     Page::showMessage(2, "Seleccione un usuario", "usuarios.php");

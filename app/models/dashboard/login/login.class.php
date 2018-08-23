@@ -12,7 +12,33 @@ class login extends Validator{
 	private $nickname = null;
 	private $TIPOusuario = null;
 	private $FechaContra = null;	
+	private $numb_ingresos = null;	
+	private $tiempo_intentos = null;
+	
 	//Métodos para sobrecarga de propiedades
+	public function settiempo_intentos($value){
+		if($this->validateDateTime($value)){
+			$this->tiempo_intentos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function gettiempo_intentos(){
+		return $this->tiempo_intentos;
+	}
+
+	public function setnumb_ingresos($value){
+		if($this->validateEnteros($value)){
+			$this->numb_ingresos = $value;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public function getnumb_ingresos(){
+		return $this->numb_ingresos;
+	}
 	public function setFechaContra($value){
 		if($this->validateFecha($value)){
 			$this->FechaContra = $value;
@@ -144,8 +170,18 @@ class login extends Validator{
 	}
 
 	//Métodos para manejar la sesión del usuario
+	public function updateNumeroIntentos(){
+		$sql = "UPDATE `usuarios` SET `numb_ingresos`= ? WHERE `id_usuario`=?";
+		$params = array($this->numb_ingresos, $this->id_usuario);
+		return Database::executeRow($sql, $params);
+	}
+	public function updateLastNumeroIntentos(){
+		$sql = "UPDATE `usuarios` SET `numb_ingresos`= ?,`tiempo_intentos`=? WHERE `id_usuario`=?";
+		$params = array($this->numb_ingresos,$this->tiempo_intentos, $this->id_usuario);
+		return Database::executeRow($sql, $params);
+	}
 	public function checkNickname(){
-		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
+		$sql = "SELECT id_usuario,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,numb_ingresos,`tiempo_intentos`,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE nickname = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
 		$otro =2;
 		$params = array($this->nickname,$otro);
 		$data = Database::getRow($sql, $params);
@@ -153,10 +189,12 @@ class login extends Validator{
 			$this->id_usuario = $data['id_usuario'];
 			$this->correo_usuario = $data['correo_usuario'];
 			$this->foto_usuario =$data['foto_usuario'];
-			$this->nombre_usuario=$data['nombre_usuario'] ;
-			$this->apellidos_usuario=$data['apellidos_usuario'] ;
-			$this->TIPOusuario=$data['tipo_usuario'] ;
-			$this->FechaContra=$data['FechaContra'] ;			
+			$this->nombre_usuario=$data['nombre_usuario'];
+			$this->apellidos_usuario=$data['apellidos_usuario'];
+			$this->TIPOusuario=$data['tipo_usuario'];
+			$this->FechaContra=$data['FechaContra'];
+			$this->numb_ingresos=$data['numb_ingresos'];			
+			$this->tiempo_intentos=$data['tiempo_intentos'];
 			return true;
 		}else{
 			return false;
@@ -213,5 +251,6 @@ class login extends Validator{
 			return true;
 		}
 	}
+	
 }
 ?>
