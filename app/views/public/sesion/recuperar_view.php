@@ -12,8 +12,7 @@
                                         <div class=" col s1 m" ></div>
                                             <h5 class="center-align black-text " >Recuperacion de contraseña usuario</h5>
                                     </div>
-<<<<<<< HEAD
-                                    <form method='post'>
+                                    <form method='post'  autocomplete= 'off'>
                                             <div class="row">
                                                 <!--Formulario-->
                                                 <div class=" center-align black-text input-field col s12 m12 l12">
@@ -21,39 +20,16 @@
                                                     <input class="black-text center-align" name="email" id="email" type="email" class="validate">
                                                     <label class="gray-text" for="email">Correo eletronico</label>
         
-=======
-                                    <form method='post' autocomplete= 'off'>
-                                            <div class="row">
-                                                <!--Formulario-->
-                                                <div class="row">
-                                                    <div class=" black-text input-field col s12 m12 l12">
-                                                        <i class="material-icons prefix">https</i>
-                                                        <input class="black-text center-align"  name="password" id="password" type="password" class="validate"  >
-                                                        <label class="gray-text" for="password">Contraseña</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class=" black-text input-field col s12 m12 l12">
-                                                        <i class="material-icons prefix">https</i>
-                                                        <input class="black-text center-align"  name="password" id="password" type="password" class="validate"  >
-                                                        <label class="gray-text" for="password">Confirmar contraseña </label>
-                                                    </div>
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
                                                 </div>
                                             </div>
                                             <div class="row ">
                                                 <div class=" ight-blue-text  col s12 m12 l12">
-<<<<<<< HEAD
                                                     <button class=" blue btn waves-effect waves-light" id="iniciar" type="submit" name="iniciar">Iniciar
-=======
-                                                    <button class=" blue btn waves-effect waves-light" id="iniciar" type="submit" name="iniciar">Cambiar
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
                                                         <i class="material-icons right"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                     </form>
-<<<<<<< HEAD
                                          <div class="row">
                                                 <div class=" black-text  col s12 m12 l12 ">
                                                     <a href="registrarse.php"> 
@@ -72,8 +48,6 @@
                                                     </a>
                                                 </div>
                                         </div>
-=======
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
                                 </div>
                             </div>
                         </div>
