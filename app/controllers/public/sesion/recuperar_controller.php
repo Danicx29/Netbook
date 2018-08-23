@@ -1,7 +1,6 @@
 <?php
 require_once("../../app/models/public/sesion/sesion.class.php");
-require_once("../../app/helpers/phpmailer/src/PHPMailer.php");
-require_once("../../app/helpers/phpmailer/src/SMTP.php");
+require_once("../../app/helpers/correos/envioCorreo.php");
 
 try{
 	$object = new login;
@@ -10,41 +9,22 @@ try{
 			$_POST = $object->validateForm($_POST);
 			if($object->setCorreo_usuario($_POST['email'])){
 				if($object->checkCorreo_usuario()){
-                                        $email_user = "";
-                                        $email_password = "";
-                                        $the_subject = "";
-                                        $address_to = $_POST['email'];
-                                        $from_name = "Netbook inc";
-                                        $phpmailer = new PHPMailer();
-                                        // ---------- datos de la cuenta de Gmail -------------------------------
-                                        $phpmailer->Username = $email_user;
-                                        $phpmailer->Password = $email_password; 
-                                        //-----------------------------------------------------------------------
-                                        // $phpmailer->SMTPDebug = 1;
-                                        $phpmailer->SMTPSecure = 'ssl';
-                                        $phpmailer->Host = "smtp.gmail.com"; // GMail
-                                        $phpmailer->Port = 465;
-                                        $phpmailer->IsSMTP(); // use SMTP
-                                        $phpmailer->SMTPAuth = true;
-                                        $phpmailer->setFrom($phpmailer->Username,$from_name);
-                                        $phpmailer->AddAddress($address_to); // recipients email
-                                        $phpmailer->Subject = $the_subject;	
-                                        $phpmailer->Body .="<h1 style='color:#3498db;'>Recuperacion de contraseña!</h1>";
-<<<<<<< HEAD
-                                        $phpmailer->Body .= "<p>Su codigo para </p>";
-                                        $phpmailer->Body .= "<p>Fecha y Hora: ".date("d-m-Y h:i:s")."</p>";
-                                        $phpmailer->IsHTML(true);
-                                        $phpmailer->Send();
-
-
-							Page::showMessage(1, "Inicio de sesion corecto", "../inicio/inicio.php");
-
-=======
-                                        $phpmailer->Body .= "<p>Para restablecer su clave usuario ingrese al siguiente enlace: http://localhost/NetBook_Finally/public/sesion/cambio_clave.php?id='' </p>";
-                                        $phpmailer->Body .= "<p>Fecha y Hora: ".date("d-m-Y h:i:s")."</p>";
-                                        $phpmailer->IsHTML(true);
-                                        $phpmailer->Send();
->>>>>>> fb3f905c771f6d0717f7272ce247fbcf7e9b30de
+                                        $mensaje="";
+                                        $email = new email("Netbook","netbook.enterprise@gmail.com","29175229");
+                                        //$email->agregar($_POST["danicxjk@gmail.com"],$_POST["Daniel"]);
+                                        $email->agregar($_POST['email'],"Usuario Netbook");
+                                        $contenido_html =  "<div>
+                                        <p style='color:#FFFF'>
+                                        Para recuperar su contraseña en ingrese a la sigiente direccion
+                                        </p>
+                                        <p> http://localhost/Netbook/public/sesion/cambio_clave.php?id="$_POST['email']"</p>
+                                         </div>";
+                                        if ($email->enviar('Recuperacion de contraseña',$contenido_html)){
+                                                Page::showMessage(1, "Se envio un correo para restaurar su contraseña", "");
+                                                                        
+                                        }else{
+                                                Page::showMessage(3, "Ocurrio un error al enviar el correo de restauracion de contraseña", "");
+                                        }     
 				}else{
 					throw new Exception("Este correo no perneten a ninguna cuenta");
 				}
