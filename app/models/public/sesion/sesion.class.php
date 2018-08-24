@@ -1,5 +1,5 @@
 <?php
-class login extends Validator{
+class loginp extends Validator{
 	//Declaración de propiedades
 	private $id_usuario = null;
 	private $correo_usuario = null;

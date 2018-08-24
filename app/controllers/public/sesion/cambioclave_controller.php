@@ -1,7 +1,7 @@
 <?php
 require_once("../../app/models/public/sesion/sesion.class.php");
 try{
-	$object = new login;
+	$object = new loginp;
 	if($object->getUsuarios()){
         if(isset($_POST['iniciar'])){
 			$_POST = $object->validateForm($_POST);
