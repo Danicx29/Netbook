@@ -218,6 +218,28 @@ class login extends Validator{
 			return false;
 		}
 	}
+	public function checkCorreo_usuario(){
+		$sql = "SELECT id_usuario,nickname,correo_usuario,foto_usuario,tipo_usuario,tipo_usuario.nombre,`nombre_usuario`, `apellidos_usuario`,numb_ingresos,`tiempo_intentos`,estado_sesion,DATE(`tiempo_contraseña`)as FechaContra FROM usuarios ,tipo_usuario WHERE correo_usuario = ?  AND usuarios.tipo_usuario =  tipo_usuario.id_tipousu AND tipo_usuario.id_tipousu !=?";
+		$otro =1;
+		$params = array($this->correo_usuario,$otro);
+		$data = Database::getRow($sql, $params);
+		if($data){
+			$this->correo_usuario = $data['correo_usuario'];
+			$this->id_usuario = $data['id_usuario'];
+			$this->nickname = $data['nickname'];
+			$this->foto_usuario =$data['foto_usuario'];
+			$this->nombre_usuario=$data['nombre_usuario'];
+			$this->apellidos_usuario=$data['apellidos_usuario'];
+			$this->TIPOusuario=$data['tipo_usuario'];
+			$this->FechaContra=$data['FechaContra'];
+			$this->numb_ingresos=$data['numb_ingresos'];			
+			$this->tiempo_intentos=$data['tiempo_intentos'];
+			$this->estado_sesion=$data['estado_sesion'];		
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function readEstadoSesion(){
 		$sql = "SELECT `estado_sesion` FROM `usuarios` WHERE `id_usuario`=?";
 		$params = array($this->id_usuario);

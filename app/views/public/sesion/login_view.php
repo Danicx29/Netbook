@@ -29,6 +29,9 @@
                                                     <label class="gray-text" for="password">Contraseña</label>
                                                 </div>
                                             </div>
+                                            <div class="row center-align">
+                                                     <div class="g-recaptcha center-align" data-sitekey="6LdA7WsUAAAAAAXI8_cjHuhb9dEgJmX0BC2T29rp"></div>
+                                            </div>
                                             <div class="row ">
                                                 <div class=" ight-blue-text  col s12 m12 l12">
                                                     <button class=" blue btn waves-effect waves-light" id="iniciar" type="submit" name="iniciar">Iniciar
