@@ -1,7 +1,9 @@
 .lista-book {
     margin: 10px;
   }
-
+.vistaracapt {
+     z-index: 10000;
+}
 .flechas{
     margin-top: 50px;
 }
